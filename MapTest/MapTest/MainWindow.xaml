@@ -33,7 +33,7 @@
                     <Label Content="Time"/>
                     <TextBox Text="" Width="150"/>
                 </WrapPanel>
-                <Separator/>
+                <Separator Margin="0,10,0,0"/>
                 <WrapPanel Orientation="Horizontal" Margin="0,10,0,0">
                     <Label Content="End / Stop"/>
                     <TextBox Text="" Width="100" />
@@ -50,12 +50,12 @@
             <WrapPanel DockPanel.Dock="Left" Width="100" Orientation="Vertical">
                 <WrapPanel Orientation="Vertical">
                     <Label Content="Friend"/>
-                    <ListView Height="100" Width="90"/>
+                    <ListView Height="100" Width="80" Margin="10,0,0,0"/>
                 </WrapPanel>
                 <Separator Margin="0,10,0,0"/>
                 <WrapPanel>
                     <Label Content="Messages"/>
-                    <ListView Height="100" Width="90"/>
+                    <ListView Height="100" Width="80" Margin="10,0,0,0"/>
                 </WrapPanel>
             </WrapPanel>
             
