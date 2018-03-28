@@ -25,5 +25,19 @@ namespace WMRApp
             Database db = new Database();
             InitializeComponent();
         }
+
+        private void btnRegister_Click(object sender, RoutedEventArgs e)
+        {
+            string Name = tbName.Text;
+            string UserName = tbUserName.Text;
+            string Password = pwbPassword.Password + "";
+            string RePassword = pwbRePassword.Password + "";
+            MessageBox.Show(Password + " " + RePassword);
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+        }
     }
 }

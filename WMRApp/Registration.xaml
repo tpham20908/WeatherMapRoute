@@ -21,13 +21,13 @@
     <Label Grid.Column="1" Grid.Row="2" Content="User Name:" Foreground="#5ff" Margin="5" FontSize="22"></Label>
     <Label Grid.Column="1" Grid.Row="3" Content="Password:" Foreground="#5ff" Margin="5" FontSize="22"></Label>
     <TextBlock Grid.Column="1" Grid.Row="4" Text="Confirm Password:" Foreground="#5ff" Margin="5 0" FontSize="22" TextWrapping="Wrap"></TextBlock>
-    <TextBox Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" Margin="0,13,30,13" Height="26"></TextBox>
-    <TextBox Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" Margin="0,13,30,13" Height="26"></TextBox>
-    <TextBox Grid.Column="2" Grid.Row="3" VerticalAlignment="Center" Margin="0,13,30,13" Height="26"></TextBox>
-    <TextBox Grid.Column="2" Grid.Row="4" VerticalAlignment="Center" Margin="0,13,30,15" Height="26"></TextBox>
+    <TextBox Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" Margin="0,13,30,13" Height="26" Name="tbName"></TextBox>
+    <TextBox Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" Margin="0,13,30,13" Height="26" Name="tbUserName"></TextBox>
+    <PasswordBox Grid.Column="2" Grid.Row="3" VerticalAlignment="Center" Margin="0,13,30,13" Height="26" Name="pwbPassword"></PasswordBox>
+    <PasswordBox Grid.Column="2" Grid.Row="4" VerticalAlignment="Center" Margin="0,13,30,15" Height="26" Name="pwbRePassword"></PasswordBox>
     <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" Margin="60 15 60 0">
-      <Button Width="90" Height="50" Content="Cancel" Margin="20 0" Background="#466" Foreground="#eee" VerticalAlignment="Center"></Button>
-      <Button Width="90" Height="50" Content="Register" Margin="20 0" Background="#466" Foreground="#eee" VerticalAlignment="Center"></Button>
+      <Button Width="90" Height="50" Content="Cancel" Margin="20 0" Background="#466" Foreground="#eee" VerticalAlignment="Center" Name="btnCancel" Click="btnCancel_Click"></Button>
+      <Button Width="90" Height="50" Content="Register" Margin="20 0" Background="#466" Foreground="#eee" VerticalAlignment="Center" Name="btnRegister" Click="btnRegister_Click"></Button>
     </StackPanel>
   </Grid>
 </Window>
