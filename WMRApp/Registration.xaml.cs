@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WMRApp.Models;
 
 namespace WMRApp
 {
@@ -21,6 +22,7 @@ namespace WMRApp
     {
         public Registration()
         {
+            Database db = new Database();
             InitializeComponent();
         }
     }
