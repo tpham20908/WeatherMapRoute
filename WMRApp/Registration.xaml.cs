@@ -34,11 +34,16 @@ namespace WMRApp
             string rePassword = pwbRePassword.Password + "";
             if (!password.Equals(rePassword))
             {
-                MessageBox.Show("Passwords must be matched", "", MessageBoxButton.OK);
+                MessageBox.Show("Passwords must be matched");
                 return;
             }
             User user = new User() { Name = name, UserName = userName, Password = password };
             int currentUserId = Global.db.AddUser(user);
+            if (MessageBox.Show("Registered successfully.\nGo to your account?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+            {
+                DialogResult = false;
+            }
+            
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
@@ -46,9 +51,15 @@ namespace WMRApp
             DialogResult = false;
         }
 
-        private void tbName_TextChanged(object sender, TextChangedEventArgs e)
+        private void tbUserName_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            List<string> userNames = Global.db.AllUserNames();
+            string userName = tbUserName.Text;
+            if (userNames.Contains(userName))
+            {
+                MessageBox.Show("User name has already existed. Choose a new one.");
+                tbUserName.Text = "";
+            }
         }
     }
 }
