@@ -45,5 +45,10 @@ namespace WMRApp
         {
             DialogResult = false;
         }
+
+        private void tbName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

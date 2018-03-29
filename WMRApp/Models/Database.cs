@@ -30,5 +30,21 @@ namespace WMRApp.Models
                 return id;
             }
         }
+
+        public List<string> AllUserNames()
+        {
+            List<string> userNames = new List<string>();
+            string sql = "SELECT UserName FROM Users;";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            using (MySqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    string userName = (string) reader["UserName"];
+                    userNames.Add(userName);
+                }
+            }
+            return userNames;
+        }
     }
 }
