@@ -50,14 +50,15 @@ namespace WMRApp.Models
         public User GetUser(string userName, string password)
         {
             User user = null;
-            string sql = "SELECT Id, Name FROM Users WHERE UserName = @userName and Password = @password";
+            
+            string sql = "SELECT Id, Name FROM Users WHERE UserName = @userName and Password = @password;";
             using (MySqlCommand cmd = new MySqlCommand(sql, conn))
             {
                 cmd.Parameters.AddWithValue("userName", userName);
                 cmd.Parameters.AddWithValue("password", password);
                 using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
-                    if (reader.Read())
+                    while (reader.Read())
                     {
                         int id = (int) reader["Id"];
                         string name = (string)reader["Name"];

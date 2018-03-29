@@ -28,8 +28,15 @@ namespace WMRApp
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
+            List<string> userNames = Global.db.AllUserNames();
             string name = tbName.Text;
             string userName = tbUserName.Text;
+            if (userNames.Contains(userName))
+            {
+                MessageBox.Show("User name has already existed. Choose a new one.");
+                tbUserName.Text = "";
+                return;
+            }
             string password = pwbPassword.Password;
             string rePassword = pwbRePassword.Password;
             if (!password.Equals(rePassword))
@@ -56,17 +63,6 @@ namespace WMRApp
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
-        }
-
-        private void tbUserName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            List<string> userNames = Global.db.AllUserNames();
-            string userName = tbUserName.Text;
-            if (userNames.Contains(userName))
-            {
-                MessageBox.Show("User name has already existed. Choose a new one.");
-                tbUserName.Text = "";
-            }
         }
     }
 }

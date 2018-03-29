@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WMRApp"
         mc:Ignorable="d"
-        Title="Platform" Height="300" Width="300">
+        Title="Platform" Height="600" Width="880" WindowStartupLocation="CenterScreen">
     <Grid>
         
     </Grid>
