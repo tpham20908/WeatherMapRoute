@@ -18,9 +18,9 @@ Yasser:
 3.
 ==== March 29 ====
 Tung:
-1. 
-2. 
-3. 
+1. Done with Registration window, created User, Database classes with insert method
+2. Working on login, platform windows
+3. How to get the User instance correctly from select method
 Yasser:
 1.
 2.
