@@ -6,7 +6,7 @@
         xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
         xmlns:local="clr-namespace:WMRApp"
         mc:Ignorable="d"
-        Title="Platform" Height="700" Width="1200" WindowStartupLocation="CenterScreen" Activated="Window_Activated">
+        Title="Platform" Height="700" Width="1200" WindowStartupLocation="CenterScreen" Activated="Window_Activated" Background="#eed">
   <Grid Margin="5">
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="3*"/>
@@ -19,10 +19,7 @@
         <RowDefinition Height="1*"/>
       </Grid.RowDefinitions>
       <Border BorderBrush="#299" BorderThickness="5" Margin="0,-6,0,6">
-        <m:Map Grid.Row="0" Name="MyMap" CredentialsProvider="AhOYVsCHeLfCM2LttVNiVAK6mUGtJmjRlevk_2qjuzV9J-gNrsj6z6MD5XREJN1h" ZoomLevel="12" >
-          <m:Map.Center>
-            <m:Location Latitude="45.501689" Longitude="-73.567256"/>
-          </m:Map.Center>
+        <m:Map Grid.Row="0" Name="MyMap" CredentialsProvider="AhOYVsCHeLfCM2LttVNiVAK6mUGtJmjRlevk_2qjuzV9J-gNrsj6z6MD5XREJN1h" ZoomLevel="12" Center="45.501689,-73.567256" MouseLeftButtonDown="MyMap_MouseLeftButtonDown" Margin="3">
         </m:Map>
       </Border>
 
