@@ -42,14 +42,10 @@ D:\TP\11-DotNet\WeatherMapRoute\WMRApp\bin\Debug\WMRApp.pdb
 D:\TP\11-DotNet\WeatherMapRoute\WMRApp\bin\Debug\MySql.Data.dll
 D:\TP\11-DotNet\WeatherMapRoute\WMRApp\bin\Debug\MySql.Data.xml
 D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\WMRApp.csprojResolveAssemblyReference.cache
-D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\MainWindow.g.cs
-D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\Platform.g.cs
 D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\Registration.g.cs
 D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\App.g.cs
 D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\WMRApp_MarkupCompile.cache
 D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\WMRApp_MarkupCompile.lref
-D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\MainWindow.baml
-D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\Platform.baml
 D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\Registration.baml
 D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\WMRApp.g.resources
 D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\WMRApp.Properties.Resources.resources
@@ -57,3 +53,9 @@ D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\WMRApp.csproj.GenerateResource.
 D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\WMRApp.csproj.CoreCompileInputs.cache
 D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\WMRApp.exe
 D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\WMRApp.pdb
+D:\TP\11-DotNet\WeatherMapRoute\WMRApp\bin\Debug\Microsoft.Maps.MapControl.WPF.dll
+D:\TP\11-DotNet\WeatherMapRoute\WMRApp\bin\Debug\Microsoft.Maps.MapControl.WPF.xml
+D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\Login.g.cs
+D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\Login.baml
+D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\MainWindow.g.cs
+D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\MainWindow.baml

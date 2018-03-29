@@ -52,11 +52,14 @@ namespace WMRApp
             }
             else
             {
-                Platform p = new Platform(user);
+                //DialogResult = true;
+                
+                MainWindow p = new MainWindow();
                 if (p.ShowDialog() == true)
                 {
-                    this.Close();
+                    DialogResult = true;
                 }
+                
             }
         }
 
