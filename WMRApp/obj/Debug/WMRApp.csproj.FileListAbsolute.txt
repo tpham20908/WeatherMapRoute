@@ -58,3 +58,4 @@ D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\WMRApp.csproj.GenerateResource.
 D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\WMRApp.csproj.CoreCompileInputs.cache
 D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\WMRApp.exe
 D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\WMRApp.pdb
+D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\WMRApp.csprojResolveAssemblyReference.cache

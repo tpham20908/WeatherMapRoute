@@ -18,17 +18,21 @@
         <RowDefinition Height="8*"/>
         <RowDefinition Height="1*"/>
       </Grid.RowDefinitions>
-      <m:Map Grid.Row="0" Name="MyMap" CredentialsProvider="AhOYVsCHeLfCM2LttVNiVAK6mUGtJmjRlevk_2qjuzV9J-gNrsj6z6MD5XREJN1h"/>
+      <m:Map Grid.Row="0" Name="MyMap" CredentialsProvider="AhOYVsCHeLfCM2LttVNiVAK6mUGtJmjRlevk_2qjuzV9J-gNrsj6z6MD5XREJN1h" ZoomLevel="12">
+        <m:Map.Center>
+          <m:Location Latitude="45.501689" Longitude="-73.567256"/>
+        </m:Map.Center>
+      </m:Map>
       <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10">
         <TextBox IsReadOnly="True" Margin="10" Width="400" Padding="10" />
         <Button Content="Add" Width="70" Margin="10"/>
       </StackPanel>
     </Grid>
-    <Grid HorizontalAlignment="Left" Height="649" Margin="10 10 20 0" VerticalAlignment="Top" Width="290">
+    <Grid HorizontalAlignment="Left" Height="649" Margin="10 10 20 10" VerticalAlignment="Top" Width="290">
       <Grid.RowDefinitions>
         <RowDefinition Height="6*"/>
         <RowDefinition Height="2*"/>
-        <RowDefinition Height="8*"/>
+        <RowDefinition Height="7*"/>
       </Grid.RowDefinitions>
       <ListView Name="lvUsers" Grid.Row="0" />
       <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5 10">
