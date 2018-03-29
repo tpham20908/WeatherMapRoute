@@ -77,8 +77,7 @@ namespace WMRApp
             //Gets the bounded rectangle for the current frame
             LocationRect bounds = map.BoundingRectangle;
             //Update the current latitude and longitude
-            tbLocation.Text = String.Format("Northwest: {0:F5}, Southeast: {1:F5} (Current)",
-                        bounds.Northwest, bounds.Southeast);
+            tbLocation.Text = String.Format("Latitude: {0:F5}\nLongitude: {1:F5}", bounds.North, bounds.West);
         }
     }
 }
