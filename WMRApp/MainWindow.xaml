@@ -7,63 +7,66 @@
         xmlns:local="clr-namespace:WMRApp"
         mc:Ignorable="d"
         Title="Platform" Height="700" Width="1200" WindowStartupLocation="CenterScreen" Activated="Window_Activated">
-    <Grid Margin="5">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="3*"/>
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="1" HorizontalAlignment="Left" Height="649" Margin="10,10,0,0" VerticalAlignment="Top" Width="522">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="8*"/>
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
-            <m:Map Grid.Row="0" Name="MyMap" CredentialsProvider="AhOYVsCHeLfCM2LttVNiVAK6mUGtJmjRlevk_2qjuzV9J-gNrsj6z6MD5XREJN1h" ZoomLevel="12">
-                <m:Map.Center>
-                    <m:Location Latitude="45.501689" Longitude="-73.567256"/>
-                </m:Map.Center>
-            </m:Map>
-            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10">
-                <TextBox IsReadOnly="True" Margin="10" Width="400" Padding="10" />
-                <Button Content="Add" Width="70" Margin="10"/>
-            </StackPanel>
-        </Grid>
-        <Grid HorizontalAlignment="Left" Height="649" Margin="10 10 20 10" VerticalAlignment="Top" Width="290">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="6*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="7*"/>
-            </Grid.RowDefinitions>
-            <ListView Name="lvUsers" Grid.Row="0" />
-            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5 10">
-                <TextBox Name="tbChat" Width="220" TextWrapping="Wrap"/>
-                <Button Name="btnChat" Width="50" Margin="10" Content="Send"/>
-            </StackPanel>
-            <ListView Name="lvChat" Grid.Row="2"/>
-        </Grid>
-        <Grid Grid.Column="2" HorizontalAlignment="Left" Height="649" Margin="20,10,10,0" VerticalAlignment="Top" Width="290">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="64*"/>
-                <ColumnDefinition Width="227*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50*"/>
-                <RowDefinition Height="50*"/>
-                <RowDefinition Height="50*"/>
-                <RowDefinition Height="108*"/>
-                <RowDefinition Height="284*"/>
-                <RowDefinition Height="77*"/>
-            </Grid.RowDefinitions>
-            <ListView Grid.Row="3" Grid.ColumnSpan="2" Margin="0,107.5,0,0" Grid.RowSpan="2"/>
-            <Button Grid.Row="5" Content="Clear All" Padding="15 5" HorizontalAlignment="Right" Margin="0,20,50,20" Name="btnClear" Click="btnClear_Click" Width="76" Grid.Column="1" />
-            <Button Grid.Row="5" Content="Exit" Padding="15 5" HorizontalAlignment="Left" Margin="50,20,0,20" Name="btnExit" Click="btnExit_Click" Width="51" Grid.ColumnSpan="2" />
-            <Label Content="Location" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Label Content="Date" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center"/>
-            <Label Content="Time" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center"/>
-            <TextBox Grid.Column="1" HorizontalAlignment="Center" Height="30"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="200"/>
-            <DatePicker Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="200"/>
-            <ComboBox Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="200"/>
-            <Button Grid.ColumnSpan="2" Content="Add New Location" HorizontalAlignment="Center" Margin="0,20,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100"/>
-        </Grid>
+  <Grid Margin="5">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="3*"/>
+      <ColumnDefinition Width="5*"/>
+      <ColumnDefinition Width="3*"/>
+    </Grid.ColumnDefinitions>
+    <Grid Grid.Column="1" HorizontalAlignment="Left" Height="630" Margin="10,10,0,0" VerticalAlignment="Top" Width="522">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="8*"/>
+        <RowDefinition Height="1*"/>
+      </Grid.RowDefinitions>
+      <Border BorderBrush="#299" BorderThickness="5" Margin="0,-6,0,6">
+        <m:Map Grid.Row="0" Name="MyMap" CredentialsProvider="AhOYVsCHeLfCM2LttVNiVAK6mUGtJmjRlevk_2qjuzV9J-gNrsj6z6MD5XREJN1h" ZoomLevel="12" >
+          <m:Map.Center>
+            <m:Location Latitude="45.501689" Longitude="-73.567256"/>
+          </m:Map.Center>
+        </m:Map>
+      </Border>
+
+      <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10">
+        <TextBox IsReadOnly="True" Margin="10" Width="400" Padding="10" VerticalAlignment="Center" />
+        <Button Content="Add" Width="70" Margin="10" VerticalAlignment="Center" />
+      </StackPanel>
     </Grid>
+    <Grid HorizontalAlignment="Left" Height="630" Margin="10 10 0 0" VerticalAlignment="Top" Width="290">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="6*"/>
+        <RowDefinition Height="2*"/>
+        <RowDefinition Height="7*"/>
+      </Grid.RowDefinitions>
+      <ListView Name="lvUsers" Grid.Row="0" />
+      <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0 10">
+        <TextBox Name="tbChat" Width="220" TextWrapping="Wrap"/>
+        <Button Name="btnChat" Width="50" Margin="20 10" Content="Send"/>
+      </StackPanel>
+      <ListView Name="lvChat" Grid.Row="2"/>
+    </Grid>
+    <Grid Grid.Column="2" HorizontalAlignment="Left" Height="630" Margin="20,10,10,0" VerticalAlignment="Top" Width="290">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="64*"/>
+        <ColumnDefinition Width="227*"/>
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="50*"/>
+        <RowDefinition Height="50*"/>
+        <RowDefinition Height="50*"/>
+        <RowDefinition Height="108*"/>
+        <RowDefinition Height="284*"/>
+        <RowDefinition Height="77*"/>
+      </Grid.RowDefinitions>
+      <ListView Grid.Row="3" Grid.ColumnSpan="2" Margin="0,107.5,0,0" Grid.RowSpan="2"/>
+      <Button Grid.Row="5" Content="Clear All" Padding="15 5" HorizontalAlignment="Right" Margin="0,20,50,20" Name="btnClear" Click="btnClear_Click" Width="76" Grid.Column="1" />
+      <Button Grid.Row="5" Content="Exit" Padding="15 5" HorizontalAlignment="Left" Margin="50,20,0,20" Name="btnExit" Click="btnExit_Click" Width="51" Grid.ColumnSpan="2" />
+      <Label Content="Location" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+      <Label Content="Date" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center"/>
+      <Label Content="Time" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center"/>
+      <TextBox Grid.Column="1" HorizontalAlignment="Center" Height="30"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="200"/>
+      <DatePicker Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="200"/>
+      <ComboBox Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="200"/>
+      <Button Grid.ColumnSpan="2" Content="Add New Location" HorizontalAlignment="Center" Margin="0,20,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100"/>
+    </Grid>
+  </Grid>
 </Window>

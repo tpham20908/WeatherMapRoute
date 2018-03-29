@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-\\vmware-host\Shared Folders\Desktop\IPD12\WeatherMapRoute\WMRApp\obj\Debug\
+C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMRApp\obj\Debug\
 WMRApp
 none
 false
 DEBUG;TRACE
-\\vmware-host\Shared Folders\Desktop\IPD12\WeatherMapRoute\WMRApp\App.xaml
+C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMRApp\App.xaml
 3384554857
 
-14-269537353
-751409852430
+14-1499233850
+75382226471
 Login.xaml;MainWindow.xaml;Registration.xaml;
 
 True

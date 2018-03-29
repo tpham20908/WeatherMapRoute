@@ -34,8 +34,6 @@ C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMR
 C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMRApp\obj\Debug\WMRApp.pdb
 C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMRApp\bin\Debug\MySql.Data.dll
 C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMRApp\bin\Debug\MySql.Data.xml
-C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMRApp\obj\Debug\Platform.g.cs
-C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMRApp\obj\Debug\Platform.baml
 D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\Login.g.cs
 D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\MainWindow.g.cs
 D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\Registration.g.cs
@@ -83,3 +81,7 @@ D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\WMRApp.csprojResolveAssemblyRef
 \\vmware-host\Shared Folders\Desktop\IPD12\WeatherMapRoute\WMRApp\obj\Debug\WMRApp.csproj.GenerateResource.cache
 \\vmware-host\Shared Folders\Desktop\IPD12\WeatherMapRoute\WMRApp\obj\Debug\WMRApp.csproj.CoreCompileInputs.cache
 \\vmware-host\Shared Folders\Desktop\IPD12\WeatherMapRoute\WMRApp\obj\Debug\WMRApp.csproj.CopyComplete
+C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMRApp\bin\Debug\Microsoft.Maps.MapControl.WPF.dll
+C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMRApp\bin\Debug\Microsoft.Maps.MapControl.WPF.xml
+C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMRApp\obj\Debug\Login.g.cs
+C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMRApp\obj\Debug\Login.baml
