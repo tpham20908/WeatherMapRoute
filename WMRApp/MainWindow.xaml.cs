@@ -25,6 +25,10 @@ namespace WMRApp
         public MainWindow()
         {
             InitializeComponent();
+            //MyMap.ViewChangeOnFrame += new EventHandler<MapEventArgs>(MyMap_ViewChangeOnFrame);
+            // Fires when the left mouse button is depressed
+            MyMap.MouseLeftButtonDown +=
+                new MouseButtonEventHandler(MyMap_MouseLeftButtonDown);
         }
 
         private void Window_Activated(object sender, EventArgs e)
@@ -67,6 +71,14 @@ namespace WMRApp
 
             // Adds the pushpin to the map.
             MyMap.Children.Add(pin);
+
+            //Gets the map that raised this event
+            Map map = (Map)sender;
+            //Gets the bounded rectangle for the current frame
+            LocationRect bounds = map.BoundingRectangle;
+            //Update the current latitude and longitude
+            tbLocation.Text = String.Format("Northwest: {0:F5}, Southeast: {1:F5} (Current)",
+                        bounds.Northwest, bounds.Southeast);
         }
     }
 }

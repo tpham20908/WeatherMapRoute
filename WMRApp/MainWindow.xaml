@@ -23,9 +23,9 @@
         </m:Map>
       </Border>
 
-      <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10">
-        <TextBox IsReadOnly="True" Margin="10" Width="400" Padding="10" VerticalAlignment="Center" />
-        <Button Content="Add" Width="70" Margin="10" VerticalAlignment="Center" />
+      <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10 0">
+        <TextBox Name="tbLocation" IsReadOnly="True" Width="400" Padding="15" VerticalAlignment="Center" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+        <Button Content="Add" Width="70" Margin="10" Padding="10" VerticalAlignment="Center" />
       </StackPanel>
     </Grid>
     <Grid HorizontalAlignment="Left" Height="630" Margin="10 10 0 0" VerticalAlignment="Top" Width="290">
