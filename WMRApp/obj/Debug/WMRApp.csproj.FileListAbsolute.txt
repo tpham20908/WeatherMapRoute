@@ -34,3 +34,5 @@ C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMR
 C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMRApp\obj\Debug\WMRApp.pdb
 C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMRApp\bin\Debug\MySql.Data.dll
 C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMRApp\bin\Debug\MySql.Data.xml
+C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMRApp\obj\Debug\Platform.g.cs
+C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMRApp\obj\Debug\Platform.baml

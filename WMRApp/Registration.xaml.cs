@@ -30,8 +30,8 @@ namespace WMRApp
         {
             string name = tbName.Text;
             string userName = tbUserName.Text;
-            string password = pwbPassword.Password + "";
-            string rePassword = pwbRePassword.Password + "";
+            string password = pwbPassword.Password;
+            string rePassword = pwbRePassword.Password;
             if (!password.Equals(rePassword))
             {
                 MessageBox.Show("Passwords must be matched");
@@ -43,7 +43,14 @@ namespace WMRApp
             {
                 DialogResult = false;
             }
-            
+            else
+            {
+                Platform p = new Platform(user);
+                if (p.ShowDialog() == true)
+                {
+                    this.Close();
+                }
+            }
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)

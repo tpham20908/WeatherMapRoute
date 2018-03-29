@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WMRApp.Models;
 
 namespace WMRApp
 {
@@ -30,13 +31,29 @@ namespace WMRApp
             Registration r = new Registration();
             if (r.ShowDialog() == true)
             {
-
+                this.Close();
             }
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-
+            string userName = tbUserName.Text;
+            string password = pwbPassword.Password;
+            User user = Global.db.GetUser(userName, password);
+            if (user != null)
+            {
+                Platform p = new Platform(user);
+                if (p.ShowDialog() == true)
+                {
+                    this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("User does not exist. Try again!");
+                tbUserName.Text = "";
+                pwbPassword.Password = "";
+            }
         }
     }
 }
