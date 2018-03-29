@@ -20,13 +20,32 @@ namespace WMRApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        private User currentUser;
+
         public MainWindow()
         {
-            Login login = new Login();
-            login.Show();
-            currentUser = login.user;
             InitializeComponent();
+        }
+
+        private void Window_Activated(object sender, EventArgs e)
+        {
+            if (Global.CurrentUser == null)
+            {
+                Login login = new Login();
+                if (login.ShowDialog() != true)
+                {
+                    Close();
+                }
+            }
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

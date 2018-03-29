@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WMRApp.Models
 {
-    class Database
+    public class Database
     {
         private MySqlConnection conn;
 

@@ -7,8 +7,9 @@ using WMRApp.Models;
 
 namespace WMRApp
 {
-    class Global
+    public class Global
     {
-        public static Database db;
+        public static Database Db;
+        public static User CurrentUser;
     }
 }

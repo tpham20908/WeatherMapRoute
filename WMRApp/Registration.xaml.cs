@@ -22,13 +22,13 @@ namespace WMRApp
     {
         public Registration()
         {
-            Global.db = new Database();
+            Global.Db = new Database();
             InitializeComponent();
         }
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
-            List<string> userNames = Global.db.AllUserNames();
+            List<string> userNames = Global.Db.AllUserNames();
             string name = tbName.Text;
             string userName = tbUserName.Text;
             if (userNames.Contains(userName))
@@ -45,7 +45,7 @@ namespace WMRApp
                 return;
             }
             User user = new User() { Name = name, UserName = userName, Password = password };
-            int currentUserId = Global.db.AddUser(user);
+            int currentUserId = Global.Db.AddUser(user);
             if (MessageBox.Show("Registered successfully.\nGo to your account?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
             {
                 DialogResult = false;

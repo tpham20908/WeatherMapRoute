@@ -21,10 +21,10 @@ namespace WMRApp
     /// </summary>
     public partial class Login : Window
     {
-        public User user;
+        
         public Login()
         {
-            Global.db = new Database();
+            Global.Db = new Database();
             InitializeComponent();
         }
 
@@ -41,17 +41,19 @@ namespace WMRApp
         {
             string userName = tbUserName.Text;
             string password = pwbPassword.Password;
-            user = Global.db.GetUser(userName, password);
+            User user = Global.Db.GetUser(userName, password);
             if (user != null)
             {
-                // DialogResult = true;
-                
+
+                DialogResult = true;
+                Global.CurrentUser = user;
+                /*
                 MainWindow p = new MainWindow();
                 if (p.ShowDialog() == true)
                 {
                     this.Close();
                 }
-                
+                */
             }
             else
             {
@@ -59,6 +61,11 @@ namespace WMRApp
                 tbUserName.Text = "";
                 pwbPassword.Password = "";
             }
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
         }
     }
 }

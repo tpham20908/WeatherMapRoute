@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:WMRApp"
         xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
         mc:Ignorable="d"
-        Title="Platform" Height="700" Width="1200" WindowStartupLocation="CenterScreen">
-  <Grid>
+        Title="Platform" Height="700" Width="1200" WindowStartupLocation="CenterScreen" Activated="Window_Activated">
+  <Grid Margin="5">
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="3*"/>
       <ColumnDefinition Width="5*"/>
@@ -19,25 +19,33 @@
         <RowDefinition Height="1*"/>
       </Grid.RowDefinitions>
       <m:Map Grid.Row="0" Name="MyMap" CredentialsProvider="AhOYVsCHeLfCM2LttVNiVAK6mUGtJmjRlevk_2qjuzV9J-gNrsj6z6MD5XREJN1h"/>
+      <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10">
+        <TextBox IsReadOnly="True" Margin="10" Width="400" Padding="10" />
+        <Button Content="Add" Width="70" Margin="10"/>
+      </StackPanel>
     </Grid>
-    <Grid HorizontalAlignment="Left" Height="649" Margin="10,10,0,0" VerticalAlignment="Top" Width="305">
+    <Grid HorizontalAlignment="Left" Height="649" Margin="10 10 20 0" VerticalAlignment="Top" Width="290">
       <Grid.RowDefinitions>
         <RowDefinition Height="6*"/>
         <RowDefinition Height="2*"/>
         <RowDefinition Height="8*"/>
       </Grid.RowDefinitions>
       <ListView Name="lvUsers" Grid.Row="0" />
-      <StackPanel Grid.Row="1" Orientation="Horizontal">
+      <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5 10">
         <TextBox Name="tbChat" Width="220" TextWrapping="Wrap"/>
-        <Button Name="btnChat" Width="60" Margin="10" Content="Send"/>
+        <Button Name="btnChat" Width="50" Margin="10" Content="Send"/>
       </StackPanel>
+      <ListView Name="lvChat" Grid.Row="2"/>
     </Grid>
-    <Grid Grid.Column="2" HorizontalAlignment="Left" Height="649" Margin="10,10,0,0" VerticalAlignment="Top" Width="315">
+    <Grid Grid.Column="2" HorizontalAlignment="Left" Height="649" Margin="20,10,10,0" VerticalAlignment="Top" Width="290">
       <Grid.RowDefinitions>
         <RowDefinition Height="288*"/>
-        <RowDefinition Height="300*"/>
-        <RowDefinition Height="61*"/>
+        <RowDefinition Height="284*"/>
+        <RowDefinition Height="77*"/>
       </Grid.RowDefinitions>
+      <ListView Grid.Row="1"/>
+      <Button Grid.Row="2" Content="Clear All" Padding="15 5" HorizontalAlignment="Right" Margin="50 20" Name="btnClear" Click="btnClear_Click" Width="76" />
+      <Button Grid.Row="2" Content="Exit" Padding="15 5" HorizontalAlignment="Left" Margin="50 20" Name="btnExit" Click="btnExit_Click" Width="51" />
     </Grid>
   </Grid>
 </Window>
