@@ -22,17 +22,23 @@ namespace WMRApp
     {
         public Registration()
         {
-            Database db = new Database();
+            Global.db = new Database();
             InitializeComponent();
         }
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
-            string Name = tbName.Text;
-            string UserName = tbUserName.Text;
-            string Password = pwbPassword.Password + "";
-            string RePassword = pwbRePassword.Password + "";
-            MessageBox.Show(Password + " " + RePassword);
+            string name = tbName.Text;
+            string userName = tbUserName.Text;
+            string password = pwbPassword.Password + "";
+            string rePassword = pwbRePassword.Password + "";
+            if (!password.Equals(rePassword))
+            {
+                MessageBox.Show("Passwords must be matched", "", MessageBoxButton.OK);
+                return;
+            }
+            User user = new User() { Name = name, UserName = userName, Password = password };
+            int currentUserId = Global.db.AddUser(user);
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
