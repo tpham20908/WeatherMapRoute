@@ -41,7 +41,13 @@ namespace WMRApp
                 {
                     Close();
                 }
+                refreshUsers();
             }
+        }
+
+        private void refreshUsers()
+        {
+            lvUsers.ItemsSource = Global.Db.GetAllUsers();
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)

@@ -34,7 +34,15 @@
         <RowDefinition Height="2*"/>
         <RowDefinition Height="7*"/>
       </Grid.RowDefinitions>
-      <ListView Name="lvUsers" Grid.Row="0" />
+      <ListView Name="lvUsers" Grid.Row="0">
+        <ListView.View>
+          <GridView>
+            <GridViewColumn Header="No." Width="40" DisplayMemberBinding="{Binding Id}"/>
+            <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}"/>
+            <GridViewColumn Header="User name" Width="120" DisplayMemberBinding="{Binding UserName}"/>
+          </GridView>
+        </ListView.View>
+      </ListView>
       <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0 10">
         <TextBox Name="tbChat" Width="220" TextWrapping="Wrap"/>
         <Button Name="btnChat" Width="50" Margin="20 10" Content="Send"/>

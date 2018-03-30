@@ -68,5 +68,24 @@ namespace WMRApp.Models
             }
             return user;
         }
+
+        public List<User> GetAllUsers()
+        {
+            List<User> list = new List<User>();
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM Users;", conn);
+            using (MySqlDataReader r = cmd.ExecuteReader())
+            {
+                while (r.Read())
+                {
+                    int id = (int)r["Id"];
+                    string name = (string)r["Name"];
+                    string userName = (string)r["UserName"];
+                    string password = (string)r["Password"];
+                    User user = new User() { Id = id, Name = name, UserName = userName };
+                    list.Add(user);
+                }
+            }
+                return list;
+        }
     }
 }
