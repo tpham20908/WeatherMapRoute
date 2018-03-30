@@ -20,16 +20,17 @@ Yasser:
 Tung:
 1. Done with Registration window, created User, Database classes with insert method
 2. Working on login, platform windows
-3. How to get the User instance correctly from select method
+3. How to get the User instance correctly from select method. Get help from teacher on rendering windows
 Yasser:
 1.
 2.
 3.
 ==== March 30 ====
 Tung:
-1. 
-2. 
-3. 
+1. Map focus Montreal with zoom level 12. Get pushpins nailed on Map, Location of pushpins showing on text box
+   Reorganize the order of windows displaying
+2. List users on ListView, functioning Chat platform
+3. Get more info of mouse hovering on pushpins 
 Yasser:
 1.
 2.
