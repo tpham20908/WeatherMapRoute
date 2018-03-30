@@ -28,8 +28,8 @@ namespace WMRApp
             //MyMap.ViewChangeOnFrame += new EventHandler<MapEventArgs>(MyMap_ViewChangeOnFrame);
             // Fires when the left mouse button is depressed
 
-            MyMap.MouseLeftButtonDown +=
-                new MouseButtonEventHandler(MyMap_MouseLeftButtonDown);
+            MyMap.MouseDoubleClick +=
+                new MouseButtonEventHandler(MyMap_MouseDoubleClick);
         }
 
         private void Window_Activated(object sender, EventArgs e)
@@ -54,7 +54,7 @@ namespace WMRApp
 
         }
 
-        private void MyMap_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void MyMap_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             // Disables the default mouse double-click action.
             e.Handled = true;
