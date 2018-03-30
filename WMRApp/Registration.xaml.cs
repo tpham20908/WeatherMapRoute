@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,8 +23,17 @@ namespace WMRApp
     {
         public Registration()
         {
-            Global.Db = new Database();
-            InitializeComponent();
+            try
+            {
+                Global.Db = new Database();
+                InitializeComponent();
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine(e.StackTrace);
+                MessageBox.Show("Error opening database connection: " + e.Message);
+                Environment.Exit(1);
+            }
         }
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
@@ -52,8 +62,6 @@ namespace WMRApp
             }
             else
             {
-                //DialogResult = true;
-                
                 MainWindow p = new MainWindow();
                 if (p.ShowDialog() == true)
                 {

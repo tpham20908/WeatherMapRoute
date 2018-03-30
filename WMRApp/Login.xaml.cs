@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,8 +25,17 @@ namespace WMRApp
         
         public Login()
         {
-            Global.Db = new Database();
-            InitializeComponent();
+            try
+            {
+                Global.Db = new Database();
+                InitializeComponent();
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine(e.StackTrace);
+                MessageBox.Show("Error opening database connection: " + e.Message);
+                Environment.Exit(1);
+            }
         }
 
         private void btnSignup_Click(object sender, RoutedEventArgs e)
@@ -33,7 +43,7 @@ namespace WMRApp
             Registration r = new Registration();
             if (r.ShowDialog() == true)
             {
-                this.Close();
+                Global.CurrentUser = null;
             }
         }
 
@@ -44,16 +54,8 @@ namespace WMRApp
             User user = Global.Db.GetUser(userName, password);
             if (user != null)
             {
-
                 DialogResult = true;
                 Global.CurrentUser = user;
-                /*
-                MainWindow p = new MainWindow();
-                if (p.ShowDialog() == true)
-                {
-                    this.Close();
-                }
-                */
             }
             else
             {
