@@ -87,5 +87,13 @@ namespace WMRApp
             tbLocation.Text = "";
             tbLocation.Text = String.Format("Latitude: {0:F5}\nLongitude: {1:F5}", bounds.North, bounds.West);
         }
+
+        private void btnChat_Click(object sender, RoutedEventArgs e)
+        {
+            string msg = tbChat.Text;
+            lbChat.Items.Add(msg);
+            lbChat.Items.Refresh();
+            tbChat.Text = "";
+        }
     }
 }
