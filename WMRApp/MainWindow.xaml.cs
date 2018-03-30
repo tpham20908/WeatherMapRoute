@@ -27,6 +27,7 @@ namespace WMRApp
             InitializeComponent();
             //MyMap.ViewChangeOnFrame += new EventHandler<MapEventArgs>(MyMap_ViewChangeOnFrame);
             // Fires when the left mouse button is depressed
+
             MyMap.MouseLeftButtonDown +=
                 new MouseButtonEventHandler(MyMap_MouseLeftButtonDown);
         }
@@ -77,6 +78,7 @@ namespace WMRApp
             //Gets the bounded rectangle for the current frame
             LocationRect bounds = map.BoundingRectangle;
             //Update the current latitude and longitude
+            tbLocation.Text = "";
             tbLocation.Text = String.Format("Latitude: {0:F5}\nLongitude: {1:F5}", bounds.North, bounds.West);
         }
     }

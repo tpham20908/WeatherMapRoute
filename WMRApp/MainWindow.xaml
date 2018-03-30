@@ -13,7 +13,7 @@
       <ColumnDefinition Width="5*"/>
       <ColumnDefinition Width="3*"/>
     </Grid.ColumnDefinitions>
-    <Grid Grid.Column="1" HorizontalAlignment="Left" Height="630" Margin="10,10,0,0" VerticalAlignment="Top" Width="522">
+    <Grid Grid.Column="1" HorizontalAlignment="Left" Height="630" Margin="10,13,0,0" VerticalAlignment="Top" Width="522">
       <Grid.RowDefinitions>
         <RowDefinition Height="8*"/>
         <RowDefinition Height="1*"/>
