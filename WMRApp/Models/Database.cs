@@ -87,5 +87,29 @@ namespace WMRApp.Models
             }
                 return list;
         }
+
+        public void AddMessageToChats(string content)
+        {
+            string sql = "INSERT INTO Chats (Content) VALUES (@Content);";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("Content", content);
+            cmd.ExecuteNonQuery();
+        }
+
+        public List<string> GetAllMessagesFromChats()
+        {
+            List<string> messages = new List<string>();
+            string sql = "SELECT Content FROM Chats;";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            using (MySqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    string message = (string)reader["Content"];
+                    messages.Add(message);
+                }
+            }
+            return messages;
+        }
     }
 }

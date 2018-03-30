@@ -41,13 +41,20 @@ namespace WMRApp
                 {
                     Close();
                 }
+                lblCurrentUser.Content = "User name: " + Global.CurrentUser.Name;
                 refreshUsers();
+                refreshChats();
             }
         }
 
         private void refreshUsers()
         {
             lvUsers.ItemsSource = Global.Db.GetAllUsers();
+        }
+
+        private void refreshChats()
+        {
+            lbChats.ItemsSource = Global.Db.GetAllMessagesFromChats();
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
@@ -90,9 +97,9 @@ namespace WMRApp
 
         private void btnChat_Click(object sender, RoutedEventArgs e)
         {
-            string msg = tbChat.Text;
-            lbChat.Items.Add(msg);
-            lbChat.Items.Refresh();
+            string msg = Global.CurrentUser.Name + ": " + tbChat.Text;
+            Global.Db.AddMessageToChats(msg);
+            refreshChats();
             tbChat.Text = "";
         }
     }
