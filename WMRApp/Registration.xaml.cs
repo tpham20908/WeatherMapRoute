@@ -55,8 +55,9 @@ namespace WMRApp
                 MessageBox.Show("Passwords must be matched");
                 return;
             }
-            user = new User() { Name = name, UserName = userName, Password = password };
-            int currentUserId = Global.Db.AddUser(user);
+            User newUser = new User() { Name = name, UserName = userName, Password = password };
+            int currentUserId = Global.Db.AddUser(newUser);
+            user = Global.Db.GetUser(userName, password);
             if (MessageBox.Show("Registered successfully. Go to your account?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
             {
                 DialogResult = false;
