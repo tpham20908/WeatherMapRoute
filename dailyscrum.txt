@@ -37,9 +37,9 @@ Yasser:
 3.
 ==== March 31 ====
 Tung:
-1. 
-2. 
-3. 
+1. List users on ListView, functioning Chat platform, List Stops (by coor). 
+2. Putting an overlay of weather onto bing map.
+3. Find similar project to learn from
 Yasser:
 1.
 2.
