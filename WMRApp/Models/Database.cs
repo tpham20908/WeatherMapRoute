@@ -140,5 +140,13 @@ namespace WMRApp.Models
             }
             return list;
         }
+
+        public void ClearStops(int userId)
+        {
+            string sql = "DELETE FROM Stops WHERE UserId = @userId;";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("userId", userId);
+            cmd.ExecuteNonQuery();
+        }
     }
 }

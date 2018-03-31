@@ -21,13 +21,12 @@ namespace WMRApp
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        private int userId;
         public MainWindow()
         {
             InitializeComponent();
             //MyMap.ViewChangeOnFrame += new EventHandler<MapEventArgs>(MyMap_ViewChangeOnFrame);
             // Fires when the left mouse button is depressed
-
             MyMap.MouseDoubleClick +=
                 new MouseButtonEventHandler(MyMap_MouseDoubleClick);
         }
@@ -41,7 +40,8 @@ namespace WMRApp
                 {
                     Close();
                 }
-                lblCurrentUser.Content = "User name: " + Global.CurrentUser.Name;
+                userId = Global.CurrentUser.Id;
+                lblCurrentUser.Content = "User's name: " + Global.CurrentUser.Name;
                 refreshUsers();
                 refreshChats();
             }
@@ -59,7 +59,7 @@ namespace WMRApp
 
         private void refreshStops()
         {
-            lbStops.ItemsSource = Global.Db.GetAllStops(Global.CurrentUser.Id);
+            lbStops.ItemsSource = Global.Db.GetAllStops(userId);
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
@@ -69,7 +69,8 @@ namespace WMRApp
 
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
-
+            Global.Db.ClearStops(userId);
+            refreshStops();
         }
 
         private void MyMap_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -113,7 +114,6 @@ namespace WMRApp
             string coor = tbLocation.Text;
             if (!coor.Equals(""))
             {
-                int userId = Global.CurrentUser.Id;
                 string lat = coor.Split(',')[0];
                 string lng = coor.Split(',')[1];
                 Global.Db.AddStop(userId, lat, lng);
