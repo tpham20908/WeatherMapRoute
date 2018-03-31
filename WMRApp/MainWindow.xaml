@@ -18,8 +18,8 @@
         <RowDefinition Height="8*"/>
         <RowDefinition Height="1*"/>
       </Grid.RowDefinitions>
-      <Border BorderBrush="#299" BorderThickness="5" Margin="0,-6,0,6">
-        <m:Map Grid.Row="0" Name="MyMap" CredentialsProvider="AhOYVsCHeLfCM2LttVNiVAK6mUGtJmjRlevk_2qjuzV9J-gNrsj6z6MD5XREJN1h" ZoomLevel="12" Center="45.501689,-73.567256" Margin="3,6,3,0" MouseDoubleClick="MyMap_MouseDoubleClick">
+      <Border BorderBrush="#299" BorderThickness="5">
+        <m:Map Grid.Row="0" Name="MyMap" CredentialsProvider="AhOYVsCHeLfCM2LttVNiVAK6mUGtJmjRlevk_2qjuzV9J-gNrsj6z6MD5XREJN1h" ZoomLevel="12" Center="45.501689,-73.567256" MouseDoubleClick="MyMap_MouseDoubleClick">
         </m:Map>
       </Border>
 
