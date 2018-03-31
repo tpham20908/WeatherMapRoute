@@ -57,6 +57,11 @@ namespace WMRApp
             lbChats.ItemsSource = Global.Db.GetAllMessagesFromChats();
         }
 
+        private void refreshStops()
+        {
+            lbStops.ItemsSource = Global.Db.GetAllStops(Global.CurrentUser.Id);
+        }
+
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -91,8 +96,8 @@ namespace WMRApp
             //Gets the bounded rectangle for the current frame
             LocationRect bounds = map.BoundingRectangle;
             //Update the current latitude and longitude
-            tbLocation.Text = "";
-            tbLocation.Text = String.Format("Latitude: {0:F5}\nLongitude: {1:F5}", bounds.North, bounds.West);
+            //tbLocation.Text = String.Format("Latitude: {0:F5}\nLongitude: {1:F5}", bounds.North, bounds.West);
+            tbLocation.Text = String.Format("{0:F5},{1:F5}", bounds.North, bounds.West);
         }
 
         private void btnChat_Click(object sender, RoutedEventArgs e)
@@ -101,6 +106,23 @@ namespace WMRApp
             Global.Db.AddMessageToChats(msg);
             refreshChats();
             tbChat.Text = "";
+        }
+
+        private void btnAddStop_Click(object sender, RoutedEventArgs e)
+        {
+            string coor = tbLocation.Text;
+            if (!coor.Equals(""))
+            {
+                int userId = Global.CurrentUser.Id;
+                string lat = coor.Split(',')[0];
+                string lng = coor.Split(',')[1];
+                Global.Db.AddStop(userId, lat, lng);
+                refreshStops();
+            }
+            else
+            {
+                MessageBox.Show("Please pick a location to add.");
+            }
         }
     }
 }

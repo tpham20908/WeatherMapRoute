@@ -25,7 +25,7 @@
 
       <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10 0">
         <TextBox Name="tbLocation" IsReadOnly="True" Width="400" Padding="15" VerticalAlignment="Center" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" />
-        <Button Content="Add" Width="70" Margin="10" Padding="10" VerticalAlignment="Center" />
+        <Button Name="btnAddStop" Content="Add" Width="70" Margin="10" Padding="10" VerticalAlignment="Center" Click="btnAddStop_Click" />
       </StackPanel>
     </Grid>
     <Grid HorizontalAlignment="Left" Height="630" Margin="10 10 0 0" VerticalAlignment="Top" Width="290">
@@ -72,7 +72,15 @@
         <RowDefinition Height="284*"/>
         <RowDefinition Height="77*"/>
       </Grid.RowDefinitions>
-      <ListView Grid.Row="3" Grid.ColumnSpan="2" Margin="0,107.5,0,0" Grid.RowSpan="2"/>
+      <ListBox Name="lbStops" Grid.Row="3" Grid.ColumnSpan="2" Margin="0,107.5,0,0" Grid.RowSpan="2">
+        <ListBox.ItemTemplate>
+          <DataTemplate>
+            <Grid>
+              <TextBlock Text="{Binding}" />
+            </Grid>
+          </DataTemplate>
+        </ListBox.ItemTemplate>
+      </ListBox>
       <Button Grid.Row="5" Content="Clear All" Padding="15 5" HorizontalAlignment="Right" Margin="0,20,50,20" Name="btnClear" Click="btnClear_Click" Width="76" Grid.Column="1" />
       <Button Grid.Row="5" Content="Exit" Padding="15 5" HorizontalAlignment="Left" Margin="50,20,0,20" Name="btnExit" Click="btnExit_Click" Width="51" Grid.ColumnSpan="2" />
       <Label Content="Location" HorizontalAlignment="Center" VerticalAlignment="Center"/>
