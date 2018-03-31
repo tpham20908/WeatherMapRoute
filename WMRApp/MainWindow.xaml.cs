@@ -22,11 +22,12 @@ namespace WMRApp
     public partial class MainWindow : Window
     {
         private int userId;
+        Microsoft.Maps.MapControl.WPF.MapTileLayer tileLayer;
+
         public MainWindow()
         {
             InitializeComponent();
-            //MyMap.ViewChangeOnFrame += new EventHandler<MapEventArgs>(MyMap_ViewChangeOnFrame);
-            // Fires when the left mouse button is depressed
+            // Fires the mouse double click
             MyMap.MouseDoubleClick +=
                 new MouseButtonEventHandler(MyMap_MouseDoubleClick);
         }
@@ -117,6 +118,7 @@ namespace WMRApp
                 string lat = coor.Split(',')[0];
                 string lng = coor.Split(',')[1];
                 Global.Db.AddStop(userId, lat, lng);
+                tbLocation.Text = "";
                 refreshStops();
             }
             else
