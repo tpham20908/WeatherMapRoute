@@ -43,7 +43,8 @@ namespace WMRApp
             Registration r = new Registration();
             if (r.ShowDialog() == true)
             {
-                Global.CurrentUser = null;
+                DialogResult = true;
+                Global.CurrentUser = r.user;
             }
         }
 
@@ -59,7 +60,7 @@ namespace WMRApp
             }
             else
             {
-                MessageBox.Show("User does not exist. Try again!");
+                MessageBox.Show("User name or passwor does not match. Please try again!");
                 tbUserName.Text = "";
                 pwbPassword.Password = "";
             }

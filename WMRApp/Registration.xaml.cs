@@ -21,6 +21,7 @@ namespace WMRApp
     /// </summary>
     public partial class Registration : Window
     {
+        public User user;
         public Registration()
         {
             try
@@ -54,20 +55,15 @@ namespace WMRApp
                 MessageBox.Show("Passwords must be matched");
                 return;
             }
-            User user = new User() { Name = name, UserName = userName, Password = password };
+            user = new User() { Name = name, UserName = userName, Password = password };
             int currentUserId = Global.Db.AddUser(user);
-            if (MessageBox.Show("Registered successfully.\nGo to your account?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+            if (MessageBox.Show("Registered successfully. Go to your account?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
             {
                 DialogResult = false;
             }
             else
             {
-                MainWindow p = new MainWindow();
-                if (p.ShowDialog() == true)
-                {
-                    DialogResult = true;
-                }
-                
+                DialogResult = true;
             }
         }
 
