@@ -45,6 +45,7 @@ namespace WMRApp
                 lblCurrentUser.Content = "User's name: " + Global.CurrentUser.Name;
                 refreshUsers();
                 refreshChats();
+                refreshStops();
             }
         }
 
