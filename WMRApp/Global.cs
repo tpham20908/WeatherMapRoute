@@ -21,19 +21,19 @@ namespace WMRApp
             string url = "http://dev.virtualearth.net/REST/v1/Locations/" 
                           + lat + "," + lng + "?&key=" + mapKey;
             var request = WebRequest.Create(url);
-            string text;
+            string result;
             var response = (HttpWebResponse)request.GetResponse();
 
             using (var sr = new StreamReader(response.GetResponseStream()))
             {
-                text = sr.ReadToEnd();
+                result = sr.ReadToEnd();
             }
 
-            JObject joText = JObject.Parse(text);
+            JObject joText = JObject.Parse(result);
             JArray resourceSets = (JArray)joText["resourceSets"];
             JArray resources = (JArray)resourceSets[0]["resources"];
-            string address = (string)resources[0]["name"];
-            return address;
+            string name = (string)resources[0]["name"];
+            return name;
         }
     }
 }
