@@ -15,6 +15,7 @@ namespace WMRApp
         public static Database Db;
         public static User CurrentUser;
         public static string mapKey = "AhOYVsCHeLfCM2LttVNiVAK6mUGtJmjRlevk_2qjuzV9J-gNrsj6z6MD5XREJN1h";
+        public static string weatherKey = "a2cc469ef8f6b9c326aeb4f98c875cdd"; //appid on https://openweathermap.org
 
         public static string getAddress(string lat, string lng)
         {
