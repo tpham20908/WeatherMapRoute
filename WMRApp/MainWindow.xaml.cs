@@ -45,11 +45,14 @@ namespace WMRApp
                 {
                     Close();
                 }
-                userId = Global.CurrentUser.Id;
-                lblCurrentUser.Content = "User's name: " + Global.CurrentUser.Name;
-                refreshUsers();
-                refreshChats();
-                refreshStops();
+                else
+                {
+                    userId = Global.CurrentUser.Id;
+                    lblCurrentUser.Content = "User's name: " + Global.CurrentUser.Name;
+                    refreshUsers();
+                    refreshChats();
+                    refreshStops();
+                }
             }
         }
 
