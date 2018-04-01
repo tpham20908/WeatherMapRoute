@@ -12,10 +12,11 @@ namespace WMRApp.Models
         public int UserId { get; set; }
         public string Lat { get; set; }
         public string Lng { get; set; }
+        public string Address { get; set; }
 
         public string toString()
         {
-            return Lat + ", " + Lng;
+            return "Lat: " + Lat + ", Lng: " + Lng + ", Address: " + Address;
         }
     }
 }

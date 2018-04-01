@@ -112,30 +112,30 @@ namespace WMRApp.Models
             return messages;
         }
 
-        public void AddStop(int userId, string lat, string lng)
+        public void AddStop(int userId, string lat, string lng, string address)
         {
-            string sql = "INSERT INTO Stops (UserId, Lat, Lng) VALUES (@UserId, @Lat, @Lng);";
+            string sql = "INSERT INTO Stops (UserId, Lat, Lng, Address) VALUES (@UserId, @Lat, @Lng, @Address);";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("UserId", userId);
             cmd.Parameters.AddWithValue("Lat", lat);
             cmd.Parameters.AddWithValue("Lng", lng);
+            cmd.Parameters.AddWithValue("Address", address);
             cmd.ExecuteNonQuery();
         }
 
-        public List<string> GetAllStops(int userId)
+        public List<string> GetAllStopsAddress(int userId)
         {
             List<string> list = new List<string>();
-            string sql = "SELECT Lat, Lng FROM Stops WHERE UserId = @userId;";
+            string sql = "SELECT Address FROM Stops WHERE UserId = @userId;";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("userId", userId);
             using (MySqlDataReader r = cmd.ExecuteReader())
             {
                 while (r.Read())
                 {
-                    string lat = (string) r["Lat"];
-                    string lng = (string) r["Lng"];
-                    Stop stop = new Stop() { Lat = lat, Lng = lng };
-                    list.Add(stop.toString());
+                    string address = (string) r["Address"];
+                    //Stop stop = new Stop() { Address = address };
+                    list.Add(address);
                 }
             }
             return list;

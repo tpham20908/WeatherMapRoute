@@ -25,6 +25,7 @@ namespace WMRApp
     public partial class MainWindow : Window
     {
         private int userId;
+        private string lat, lng;
         Microsoft.Maps.MapControl.WPF.MapTileLayer tileLayer;
 
         public MainWindow()
@@ -64,7 +65,7 @@ namespace WMRApp
 
         private void refreshStops()
         {
-            lbStops.ItemsSource = Global.Db.GetAllStops(userId);
+            lbStops.ItemsSource = Global.Db.GetAllStopsAddress(userId);
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
@@ -102,8 +103,10 @@ namespace WMRApp
             //Gets the bounded rectangle for the current frame
             LocationRect bounds = map.BoundingRectangle;
             //Update the current latitude and longitude
-            //tbLocation.Text = String.Format("Latitude: {0:F5}\nLongitude: {1:F5}", bounds.North, bounds.West);
-            tbLocation.Text = String.Format("{0:F5},{1:F5}", bounds.North, bounds.West);
+            lat = string.Format("{0:F5}", bounds.North);
+            lng = string.Format("{0:F5}", bounds.West);
+
+            tbLocation.Text = Global.getAddress(lat, lng);
         }
 
         private void btnChat_Click(object sender, RoutedEventArgs e)
@@ -116,32 +119,11 @@ namespace WMRApp
 
         private void btnAddStop_Click(object sender, RoutedEventArgs e)
         {
-            string coor = tbLocation.Text;
-            if (!coor.Equals(""))
+            string address = tbLocation.Text;
+            if (!address.Equals(""))
             {
-                string lat = coor.Split(',')[0];
-                string lng = coor.Split(',')[1];
-                Global.Db.AddStop(userId, lat, lng);
+                Global.Db.AddStop(userId, lat, lng, address);
                 refreshStops();
-
-                string url = "http://dev.virtualearth.net/REST/v1/Locations/"
-                            + tbLocation.Text
-                            + "?&key=AhOYVsCHeLfCM2LttVNiVAK6mUGtJmjRlevk_2qjuzV9J-gNrsj6z6MD5XREJN1h";
-                var request = WebRequest.Create(url);
-                string text;
-                var response = (HttpWebResponse)request.GetResponse();
-
-                using (var sr = new StreamReader(response.GetResponseStream()))
-                {
-                    text = sr.ReadToEnd();
-                }
-
-                JObject joText = JObject.Parse(text);
-                JArray resourceSets = (JArray)joText["resourceSets"];
-                JArray resources = (JArray)resourceSets[0]["resources"];
-                string address = (string)resources[0]["name"];
-                MessageBox.Show(address);
-
                 tbLocation.Text = "";
             }
             else

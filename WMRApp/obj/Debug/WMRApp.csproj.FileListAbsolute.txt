@@ -85,3 +85,5 @@ C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMR
 C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMRApp\bin\Debug\Microsoft.Maps.MapControl.WPF.xml
 C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMRApp\obj\Debug\Login.g.cs
 C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMRApp\obj\Debug\Login.baml
+C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMRApp\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMRApp\bin\Debug\Newtonsoft.Json.xml
