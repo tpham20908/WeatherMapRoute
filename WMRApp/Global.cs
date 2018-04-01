@@ -17,6 +17,11 @@ namespace WMRApp
         public static string mapKey = "AhOYVsCHeLfCM2LttVNiVAK6mUGtJmjRlevk_2qjuzV9J-gNrsj6z6MD5XREJN1h";
         public static string weatherKey = "a2cc469ef8f6b9c326aeb4f98c875cdd"; //appid on https://openweathermap.org
 
+        private static double KtoC(double k)
+        {
+            return k - 273.15;
+        }
+
         public static string getWeather(string lat, string lng)
         {
             string url = "http://api.openweathermap.org/data/2.5/weather?lat="
@@ -33,13 +38,16 @@ namespace WMRApp
             // parsing the result
             JObject joText = JObject.Parse(result);
             JObject main = (JObject)joText["main"];
-            string temp = (string)main["temp"];
+            string tempStr = (string)main["temp"];
+            double temp = KtoC(double.Parse(tempStr));
             string pressure = (string)main["pressure"];
             string humidity = (string)main["humidity"];
-            string temp_min = (string)main["temp_min"];
-            string temp_max = (string)main["temp_max"];
-            result = string.Format("Temperature: {0}, Pressure: {1}, Humidity: {2}, " +
-                "Min deg: {3}, Max deg: {4}", temp, pressure, humidity, temp_min, temp_max);
+            string temp_minStr = (string)main["temp_min"];
+            double temp_min = KtoC(double.Parse(temp_minStr));
+            string temp_maxStr = (string)main["temp_max"];
+            double temp_max = KtoC(double.Parse(temp_maxStr));
+            result = string.Format("Temperature: {0:F1}, Pressure: {1}, Humidity: {2}, " +
+                "Min deg: {3:F1}, Max deg: {4:F1}", temp, pressure, humidity, temp_min, temp_max);
             return result;
         }
 
