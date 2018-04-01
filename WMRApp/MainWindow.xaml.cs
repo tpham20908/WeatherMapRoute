@@ -1,7 +1,10 @@
 ﻿using Microsoft.Maps.MapControl.WPF;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -119,8 +122,27 @@ namespace WMRApp
                 string lat = coor.Split(',')[0];
                 string lng = coor.Split(',')[1];
                 Global.Db.AddStop(userId, lat, lng);
-                tbLocation.Text = "";
                 refreshStops();
+
+                string url = "http://dev.virtualearth.net/REST/v1/Locations/"
+                            + tbLocation.Text
+                            + "?&key=AhOYVsCHeLfCM2LttVNiVAK6mUGtJmjRlevk_2qjuzV9J-gNrsj6z6MD5XREJN1h";
+                var request = WebRequest.Create(url);
+                string text;
+                var response = (HttpWebResponse)request.GetResponse();
+
+                using (var sr = new StreamReader(response.GetResponseStream()))
+                {
+                    text = sr.ReadToEnd();
+                }
+
+                JObject joText = JObject.Parse(text);
+                JArray resourceSets = (JArray)joText["resourceSets"];
+                JArray resources = (JArray)resourceSets[0]["resources"];
+                string address = (string)resources[0]["name"];
+                MessageBox.Show(address);
+
+                tbLocation.Text = "";
             }
             else
             {
