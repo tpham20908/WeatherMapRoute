@@ -100,8 +100,7 @@ namespace WMRApp
 
             //Gets the map that raised this event
             Map map = (Map)sender;
-            //Gets the bounded rectangle for the current frame
-            LocationRect bounds = map.BoundingRectangle;
+            
             //Update the current latitude and longitude
             lat = string.Format("{0:F5}", pinLocation.Latitude);
             lng = string.Format("{0:F5}", pinLocation.Longitude);
