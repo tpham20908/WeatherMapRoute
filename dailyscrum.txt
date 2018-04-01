@@ -44,3 +44,48 @@ Yasser:
 1.
 2.
 3.
+==== Apr 1 ====
+Tung:
+1. Make api request from coordinates on the map to retrieve json response.
+2. Get real address from parsing json object.
+3. Documentation of Newtonsoft.json
+Yasser:
+1. 
+2. 
+3. 
+==== Apr 2 ====
+Tung:
+1. 
+2. 
+3. 
+Yasser:
+1. 
+2. 
+3. 
+==== Apr 3 ====
+Tung:
+1. 
+2. 
+3. 
+Yasser:
+1. 
+2. 
+3. 
+==== Apr 4 ====
+Tung:
+1. 
+2. 
+3. 
+Yasser:
+1. 
+2. 
+3. 
+==== Apr 5 ====
+Tung:
+1. 
+2. 
+3. 
+Yasser:
+1. 
+2. 
+3. 
