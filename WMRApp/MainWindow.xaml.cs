@@ -103,8 +103,8 @@ namespace WMRApp
             //Gets the bounded rectangle for the current frame
             LocationRect bounds = map.BoundingRectangle;
             //Update the current latitude and longitude
-            lat = string.Format("{0:F5}", bounds.North);
-            lng = string.Format("{0:F5}", bounds.West);
+            lat = string.Format("{0:F5}", pinLocation.Latitude);
+            lng = string.Format("{0:F5}", pinLocation.Longitude);
 
             tbLocation.Text = Global.getAddress(lat, lng);
         }

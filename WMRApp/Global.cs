@@ -28,7 +28,7 @@ namespace WMRApp
             {
                 result = sr.ReadToEnd();
             }
-
+            // parsing the result
             JObject joText = JObject.Parse(result);
             JArray resourceSets = (JArray)joText["resourceSets"];
             JArray resources = (JArray)resourceSets[0]["resources"];
