@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WMRApp.Models
 {
-    class Stop
+    public class Stop
     {
         public int Id { get; set; }
         public int UserId { get; set; }

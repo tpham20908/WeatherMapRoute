@@ -141,6 +141,25 @@ namespace WMRApp.Models
             return list;
         }
 
+        public List<Stop> GetAllCoordinates(int userId)
+        {
+            List<Stop> list = new List<Stop>();
+            string sql = "SELECT Lat, Lng FROM Stops WHERE UserId = @userId;";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("userId", userId);
+            using (MySqlDataReader r = cmd.ExecuteReader())
+            {
+                while (r.Read())
+                {
+                    double lat = (double)r["Lat"];
+                    double lng = (double)r["Lng"];
+                    Stop stop = new Stop() { Lat = lat, Lng = lng };
+                    list.Add(stop);
+                }
+            }
+            return list;
+        }
+
         public void ClearStops(int userId)
         {
             string sql = "DELETE FROM Stops WHERE UserId = @userId;";

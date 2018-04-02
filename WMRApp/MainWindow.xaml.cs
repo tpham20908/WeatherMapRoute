@@ -52,6 +52,8 @@ namespace WMRApp
                     refreshUsers();
                     refreshChats();
                     refreshStops();
+                    refreshPushpins();
+                    
                 }
             }
         }
@@ -69,6 +71,31 @@ namespace WMRApp
         private void refreshStops()
         {
             lbStops.ItemsSource = Global.Db.GetAllStopsAddress(userId);
+        }
+
+        public void refreshPushpins()
+        {
+            List<Stop> stopList = Global.Db.GetAllCoordinates(userId);
+            foreach (Stop stop in stopList)
+            {
+                double lat = stop.Lat;
+                double lng = stop.Lng;
+                var pin = new Pushpin();
+                pin.Location = new Location(lat, lng);
+                MyMap.Children.Add(pin);
+
+                string weather = Global.getWeather(lat, lng);
+                ToolTipService.SetToolTip(pin, weather);
+                //bindingWeather(lat, lng);
+            }
+        }
+
+        public void bindingWeather(double lat, double lng)
+        {
+            string weather = Global.getWeather(lat, lng);
+            Pushpin pin = new Pushpin();
+            pin.Location = new Location(lat, lng);
+            ToolTipService.SetToolTip(pin, weather);
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
@@ -107,11 +134,11 @@ namespace WMRApp
             //Update the current latitude and longitude
             lat = pinLocation.Latitude;
             lng = pinLocation.Longitude;
-
             tbLocation.Text = Global.getAddress(lat, lng);
+
             string weather = Global.getWeather(lat, lng);
-            // set tooltip on a pushpin
             ToolTipService.SetToolTip(pin, weather);
+            //bindingWeather(lat, lng);
         }
 
         private void btnChat_Click(object sender, RoutedEventArgs e)
