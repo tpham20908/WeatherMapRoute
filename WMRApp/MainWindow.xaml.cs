@@ -25,7 +25,7 @@ namespace WMRApp
     public partial class MainWindow : Window
     {
         private int userId;
-        private string lat, lng;
+        private double lat, lng;
         Microsoft.Maps.MapControl.WPF.MapTileLayer tileLayer;
 
         public MainWindow()
@@ -105,8 +105,8 @@ namespace WMRApp
             Map map = (Map)sender;
             
             //Update the current latitude and longitude
-            lat = string.Format("{0:F5}", pinLocation.Latitude);
-            lng = string.Format("{0:F5}", pinLocation.Longitude);
+            lat = pinLocation.Latitude;
+            lng = pinLocation.Longitude;
 
             tbLocation.Text = Global.getAddress(lat, lng);
             string weather = Global.getWeather(lat, lng);

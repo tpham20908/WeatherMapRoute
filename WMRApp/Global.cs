@@ -22,7 +22,7 @@ namespace WMRApp
             return k - 273.15;
         }
 
-        public static string getWeather(string lat, string lng)
+        public static string getWeather(double lat, double lng)
         {
             string url = "http://api.openweathermap.org/data/2.5/weather?lat="
                 + lat + "&lon=" + lng + "&appid=" + weatherKey;
@@ -51,7 +51,7 @@ namespace WMRApp
             return result;
         }
 
-        public static string getAddress(string lat, string lng)
+        public static string getAddress(double lat, double lng)
         {
             string url = "http://dev.virtualearth.net/REST/v1/Locations/" 
                           + lat + "," + lng + "?&key=" + mapKey;

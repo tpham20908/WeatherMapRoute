@@ -112,7 +112,7 @@ namespace WMRApp.Models
             return messages;
         }
 
-        public void AddStop(int userId, string lat, string lng, string address)
+        public void AddStop(int userId, double lat, double lng, string address)
         {
             string sql = "INSERT INTO Stops (UserId, Lat, Lng, Address) VALUES (@UserId, @Lat, @Lng, @Address);";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
