@@ -109,9 +109,9 @@ namespace WMRApp
             lng = string.Format("{0:F5}", pinLocation.Longitude);
 
             tbLocation.Text = Global.getAddress(lat, lng);
-
             string weather = Global.getWeather(lat, lng);
-            MessageBox.Show(weather);
+            // set tooltip on a pushpin
+            ToolTipService.SetToolTip(pin, weather);
         }
 
         private void btnChat_Click(object sender, RoutedEventArgs e)
