@@ -149,6 +149,12 @@ namespace WMRApp
             tbChat.Text = "";
         }
 
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            MyMap.Children.Clear();
+            tbLocation.Clear();
+        }
+
         private void btnAddStop_Click(object sender, RoutedEventArgs e)
         {
             string address = tbLocation.Text;

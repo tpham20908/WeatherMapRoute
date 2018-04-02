@@ -24,9 +24,11 @@
       </Border>
 
       <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10 0">
-        <TextBox Name="tbLocation" IsReadOnly="True" Width="400" Padding="15" VerticalAlignment="Center" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" />
-        <Button Name="btnAddStop" Content="Add" Width="70" Margin="10" Padding="10" VerticalAlignment="Center" Click="btnAddStop_Click" />
-      </StackPanel>
+        <TextBox Name="tbLocation" IsReadOnly="True" Width="350" Padding="15" VerticalAlignment="Center" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+        <Button Name="btnAddStop" Content="Add" Width="60" Margin="10" Padding="10" VerticalAlignment="Center" Click="btnAddStop_Click" />
+        <Button Name="btnDelete" Click="btnDelete_Click" Content="Delete" Width="60" Margin="10" Padding="10" VerticalAlignment="Center"/>
+
+            </StackPanel>
     </Grid>
     <Grid HorizontalAlignment="Left" Height="630" Margin="10 10 0 0" VerticalAlignment="Top" Width="290">
       <Grid.RowDefinitions>

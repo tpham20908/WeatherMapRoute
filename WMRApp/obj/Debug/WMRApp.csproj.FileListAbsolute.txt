@@ -87,3 +87,5 @@ C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMR
 C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMRApp\obj\Debug\Login.baml
 C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMRApp\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMRApp\bin\Debug\Newtonsoft.Json.xml
+\\vmware-host\Shared Folders\Desktop\IPD12\WeatherMapRoute\WMRApp\bin\Debug\Newtonsoft.Json.dll
+\\vmware-host\Shared Folders\Desktop\IPD12\WeatherMapRoute\WMRApp\bin\Debug\Newtonsoft.Json.xml
