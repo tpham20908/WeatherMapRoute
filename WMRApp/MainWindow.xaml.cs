@@ -86,16 +86,7 @@ namespace WMRApp
 
                 string weather = Global.getWeather(lat, lng);
                 ToolTipService.SetToolTip(pin, weather);
-                //bindingWeather(lat, lng);
             }
-        }
-
-        public void bindingWeather(double lat, double lng)
-        {
-            string weather = Global.getWeather(lat, lng);
-            Pushpin pin = new Pushpin();
-            pin.Location = new Location(lat, lng);
-            ToolTipService.SetToolTip(pin, weather);
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
@@ -138,7 +129,6 @@ namespace WMRApp
 
             string weather = Global.getWeather(lat, lng);
             ToolTipService.SetToolTip(pin, weather);
-            //bindingWeather(lat, lng);
         }
 
         private void btnChat_Click(object sender, RoutedEventArgs e)
