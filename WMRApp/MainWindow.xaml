@@ -85,13 +85,12 @@
       </ListBox>
       <Button Grid.Row="5" Content="Clear All" Padding="15 5" HorizontalAlignment="Right" Margin="0,20,50,20" Name="btnClear" Click="btnClear_Click" Width="76" Grid.Column="1" />
       <Button Grid.Row="5" Content="Exit" Padding="15 5" HorizontalAlignment="Left" Margin="50,20,0,20" Name="btnExit" Click="btnExit_Click" Width="51" Grid.ColumnSpan="2" />
-      <Label Content="Location" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-      <Label Content="Date" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center"/>
+            <Label Content="Date" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center"/>
       <Label Content="Time" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center"/>
-      <TextBox Grid.Column="1" HorizontalAlignment="Center" Height="30"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="200"/>
+      <TextBox Name="tbAddress" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="30"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="290"/>
       <DatePicker Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="200"/>
       <ComboBox Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="200"/>
-      <Button Grid.ColumnSpan="2" Content="Add New Location" HorizontalAlignment="Center" Margin="0,20,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100"/>
+      <Button Name="btnAddNewLocation" Click="btnAddNewLocation_Click" Grid.ColumnSpan="2" Content="Add New Location" HorizontalAlignment="Center" Margin="0,20,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100"/>
     </Grid>
   </Grid>
 </Window>

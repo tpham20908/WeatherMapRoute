@@ -155,14 +155,32 @@ namespace WMRApp
             tbLocation.Clear();
         }
 
+        private void btnAddNewLocation_Click(object sender, RoutedEventArgs e)
+        {
+            string address = tbAddress.Text;
+            if (!address.Equals(""))
+            {
+
+                Global.Db.AddStop(userId, lat, lng, address);
+                refreshStops();
+                tbAddress.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Please pick a location to add.");
+            }
+        }
+
         private void btnAddStop_Click(object sender, RoutedEventArgs e)
         {
             string address = tbLocation.Text;
             if (!address.Equals(""))
             {
-                Global.Db.AddStop(userId, lat, lng, address);
-                refreshStops();
-                tbLocation.Text = "";
+                tbAddress.Text = tbLocation.Text;
+
+                //Global.Db.AddStop(userId, lat, lng, address);
+                //refreshStops();
+                //tbLocation.Text = "";
             }
             else
             {
