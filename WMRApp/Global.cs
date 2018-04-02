@@ -46,8 +46,8 @@ namespace WMRApp
             double temp_min = KtoC(double.Parse(temp_minStr));
             string temp_maxStr = (string)main["temp_max"];
             double temp_max = KtoC(double.Parse(temp_maxStr));
-            result = string.Format("Temperature: {0:F1}, Pressure: {1}, Humidity: {2}, " +
-                "Min deg: {3:F1}, Max deg: {4:F1}", temp, pressure, humidity, temp_min, temp_max);
+            result = string.Format("Temperature: {0:F0}°C, Pressure: {1}hPa, Humidity: {2}%, " +
+                "\nMin deg: {3:F0}°C, Max deg: {4:F0}°C", temp, pressure, humidity, temp_min, temp_max);
             return result;
         }
 
