@@ -55,9 +55,10 @@ Yasser:
 3. 
 ==== Apr 2 ====
 Tung:
-1. 
-2. 
-3. 
+1. Parsing Json object to obtain real address, weather condition of a point on the map.
+   Weather condition rendered thru a tootip when mouse hovers a pushpin.
+2. Render all pushpins base on listbox stops a user created earlier on as the user login into his account.
+3. Docs about pushpins rendered on map.
 Yasser:
 1. 
 2. 
@@ -105,7 +106,7 @@ Find a Location by Point:
 	https://msdn.microsoft.com/en-us/library/ff701710.aspx
 Weather API: 
 	https://openweathermap.org/current#current_JSON
-WebRequest: 
+WebRequest + XML/JSON response of Location: 
 	https://stackoverflow.com/questions/2108297/how-to-get-json-response-using-system-net-webrequest-in-c
 JSON formatter: 
 	https://jsonformatter.curiousconcept.com/
