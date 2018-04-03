@@ -74,7 +74,8 @@ Yasser:
 3. 
 ==== Apr 4 ====
 Tung:
-1. 
+1. Read http://www.entityframeworktutorial.net/what-is-entityframework.aspx
+	http://www.entityframeworktutorial.net/code-first/what-is-code-first.aspx
 2. 
 3. 
 Yasser:
@@ -113,3 +114,5 @@ JSON formatter:
 Add tooltip on pushpins: 
 	https://rbrundritt.wordpress.com/2010/05/04/simple-infoboxes-in-bing-maps-silverlight/
 	https://rbrundritt.wordpress.com/2009/08/01/ve-silverlight-control-%E2%80%93-pushpins-infoboxes-and-best-map-view/
+
+
