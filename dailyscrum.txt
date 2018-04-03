@@ -65,9 +65,9 @@ Yasser:
 3. 
 ==== Apr 3 ====
 Tung:
-1. 
-2. 
-3. 
+1. Pushpins rendered on the map with weather their condition.
+2. Draw route lines between pushpins on the maps.
+3. Need help from teacher on drawing route lines.
 Yasser:
 1. 
 2. 
