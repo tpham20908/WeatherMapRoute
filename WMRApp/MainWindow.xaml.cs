@@ -25,7 +25,9 @@ namespace WMRApp
     public partial class MainWindow : Window
     {
         private int userId;
-        private double lat, lng;
+        public double lat, lng, newLat, newLng;
+
+
 
         public MainWindow()
         {
@@ -34,11 +36,16 @@ namespace WMRApp
             MyMap.MouseDoubleClick +=
                 new MouseButtonEventHandler(MyMap_MouseDoubleClick);
 
-            
+           
         }
+    
+       
+
+        
 
         private void Window_Activated(object sender, EventArgs e)
         {
+
             if (Global.CurrentUser == null)
             {
                 Login login = new Login();
@@ -54,11 +61,13 @@ namespace WMRApp
                     refreshChats();
                     refreshStops();
                     refreshPushpins();
-                    
+                   
+
                 }
             }
         }
 
+       
         private void refreshUsers()
         {
             lvUsers.ItemsSource = Global.Db.GetAllUsers();
@@ -81,7 +90,7 @@ namespace WMRApp
             {
                 double lat = stop.Lat;
                 double lng = stop.Lng;
-                var pin = new Pushpin();
+                var pin = new DraggablePin(MyMap, DraggablePinDroppedHanlder);
                 pin.Location = new Location(lat, lng);
                 MyMap.Children.Add(pin);
 
@@ -101,8 +110,23 @@ namespace WMRApp
             refreshStops();
         }
 
+        public void DraggablePinDroppedHanlder(DraggablePin pin)
+        {
+            Console.WriteLine("Pin dropped");
+            var pinLocation = pin.Location;
+            //Update the current latitude and longitude
+            lat = pinLocation.Latitude;
+            lng = pinLocation.Longitude;
+            tbLocation.Text = Global.getAddress(lat, lng);
+
+        }
+
         private void MyMap_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            if (e.Handled)
+            {
+                return;
+            }
             // Disables the default mouse double-click action.
             e.Handled = true;
 
@@ -112,11 +136,11 @@ namespace WMRApp
             Point mousePosition = e.GetPosition(MyMap);
             //Convert the mouse coordinates to a locatoin on the map
             Location pinLocation = MyMap.ViewportPointToLocation(mousePosition);
-
+            
             // The pushpin to add to the map.
-            Pushpin pin = new Pushpin();
+            DraggablePin pin = new DraggablePin(MyMap, DraggablePinDroppedHanlder);
             pin.Location = pinLocation;
-
+           
             // Adds the pushpin to the map.
             MyMap.Children.Add(pin);
 
@@ -139,6 +163,10 @@ namespace WMRApp
             refreshChats();
             tbChat.Text = "";
         }
+
+       
+        
+        
 
         private void btnAddStop_Click(object sender, RoutedEventArgs e)
         {
