@@ -86,8 +86,8 @@ Yasser:
 ==== Apr 5 ====
 Tung:
 1. 
-2. 
-3. 
+2. Try to implement the route connection on map
+3. https://code.msdn.microsoft.com/windowsapps/Draw-Route-using-Bing-Maps-4a6ad1e7
 Yasser:
 1. 
 2. 
@@ -112,6 +112,7 @@ WebRequest + XML/JSON response of Location:
 	https://stackoverflow.com/questions/2108297/how-to-get-json-response-using-system-net-webrequest-in-c
 Driving route api:
 	https://msdn.microsoft.com/en-us/library/gg636957.aspx
+	https://code.msdn.microsoft.com/windowsapps/Draw-Route-using-Bing-Maps-4a6ad1e7
 JSON formatter: 
 	https://jsonformatter.curiousconcept.com/
 Add tooltip on pushpins: 
