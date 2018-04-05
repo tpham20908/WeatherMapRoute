@@ -76,6 +76,7 @@
     </ApplicationDefinition>
     <Compile Include="Global.cs" />
     <Compile Include="Models\Database.cs" />
+    <Compile Include="Models\DraggablePin.cs" />
     <Compile Include="Models\RootObject.cs" />
     <Compile Include="Models\Stop.cs" />
     <Compile Include="Models\User.cs" />
