@@ -25,16 +25,13 @@ namespace WMRApp
     public partial class MainWindow : Window
     {
         private int userId;
-        private double lat, lng;
+        public double lat, lng;
 
         public MainWindow()
         {
             InitializeComponent();
             // Fires the mouse double click
-            MyMap.MouseDoubleClick +=
-                new MouseButtonEventHandler(MyMap_MouseDoubleClick);
-
-            
+            MyMap.MouseDoubleClick += new MouseButtonEventHandler(MyMap_MouseDoubleClick);
         }
 
         private void Window_Activated(object sender, EventArgs e)
@@ -54,7 +51,6 @@ namespace WMRApp
                     refreshChats();
                     refreshStops();
                     refreshPushpins();
-                    
                 }
             }
         }
@@ -81,7 +77,7 @@ namespace WMRApp
             {
                 double lat = stop.Lat;
                 double lng = stop.Lng;
-                var pin = new Pushpin();
+                var pin = new DraggablePin(MyMap, DraggablePinDroppedHanlder);
                 pin.Location = new Location(lat, lng);
                 MyMap.Children.Add(pin);
 
@@ -101,8 +97,22 @@ namespace WMRApp
             refreshStops();
         }
 
+        public void DraggablePinDroppedHanlder(DraggablePin pin)
+        {
+            Console.WriteLine("Pin dropped");
+            var pinLocation = pin.Location;
+            //Update the current latitude and longitude
+            lat = pinLocation.Latitude;
+            lng = pinLocation.Longitude;
+            tbLocation.Text = Global.getAddress(lat, lng);
+        }
+
         private void MyMap_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            if (e.Handled)
+            {
+                return;
+            }
             // Disables the default mouse double-click action.
             e.Handled = true;
 
@@ -114,7 +124,7 @@ namespace WMRApp
             Location pinLocation = MyMap.ViewportPointToLocation(mousePosition);
 
             // The pushpin to add to the map.
-            Pushpin pin = new Pushpin();
+            DraggablePin pin = new DraggablePin(MyMap, DraggablePinDroppedHanlder);
             pin.Location = pinLocation;
 
             // Adds the pushpin to the map.
@@ -122,7 +132,7 @@ namespace WMRApp
 
             //Gets the map that raised this event
             Map map = (Map)sender;
-            
+
             //Update the current latitude and longitude
             lat = pinLocation.Latitude;
             lng = pinLocation.Longitude;
