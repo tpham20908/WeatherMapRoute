@@ -26,7 +26,6 @@ namespace WMRApp
     {
         private int userId;
         private double lat, lng;
-        Microsoft.Maps.MapControl.WPF.MapTileLayer tileLayer;
 
         public MainWindow()
         {
@@ -34,6 +33,8 @@ namespace WMRApp
             // Fires the mouse double click
             MyMap.MouseDoubleClick +=
                 new MouseButtonEventHandler(MyMap_MouseDoubleClick);
+
+            
         }
 
         private void Window_Activated(object sender, EventArgs e)
