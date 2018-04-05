@@ -25,27 +25,17 @@ namespace WMRApp
     public partial class MainWindow : Window
     {
         private int userId;
-        public double lat, lng, newLat, newLng;
-
-
+        public double lat, lng;
 
         public MainWindow()
         {
             InitializeComponent();
             // Fires the mouse double click
-            MyMap.MouseDoubleClick +=
-                new MouseButtonEventHandler(MyMap_MouseDoubleClick);
-
-           
+            MyMap.MouseDoubleClick += new MouseButtonEventHandler(MyMap_MouseDoubleClick);
         }
-    
-       
-
-        
 
         private void Window_Activated(object sender, EventArgs e)
         {
-
             if (Global.CurrentUser == null)
             {
                 Login login = new Login();
@@ -61,13 +51,10 @@ namespace WMRApp
                     refreshChats();
                     refreshStops();
                     refreshPushpins();
-                   
-
                 }
             }
         }
 
-       
         private void refreshUsers()
         {
             lvUsers.ItemsSource = Global.Db.GetAllUsers();
@@ -118,7 +105,6 @@ namespace WMRApp
             lat = pinLocation.Latitude;
             lng = pinLocation.Longitude;
             tbLocation.Text = Global.getAddress(lat, lng);
-
         }
 
         private void MyMap_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -136,17 +122,17 @@ namespace WMRApp
             Point mousePosition = e.GetPosition(MyMap);
             //Convert the mouse coordinates to a locatoin on the map
             Location pinLocation = MyMap.ViewportPointToLocation(mousePosition);
-            
+
             // The pushpin to add to the map.
             DraggablePin pin = new DraggablePin(MyMap, DraggablePinDroppedHanlder);
             pin.Location = pinLocation;
-           
+
             // Adds the pushpin to the map.
             MyMap.Children.Add(pin);
 
             //Gets the map that raised this event
             Map map = (Map)sender;
-            
+
             //Update the current latitude and longitude
             lat = pinLocation.Latitude;
             lng = pinLocation.Longitude;
@@ -163,10 +149,6 @@ namespace WMRApp
             refreshChats();
             tbChat.Text = "";
         }
-
-       
-        
-        
 
         private void btnAddStop_Click(object sender, RoutedEventArgs e)
         {
