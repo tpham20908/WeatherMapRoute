@@ -1,43 +1,20 @@
-<<<<<<< HEAD
 ﻿WMRApp
 
 
 winexe
 C#
 .cs
-C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMRApp\obj\Debug\
+C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\12-VB.NetAndC#.Net\Projects\WeatherMapRoute\WMRApp\obj\Debug\
 WMRApp
 none
 false
 DEBUG;TRACE
-C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\11-DotNet\Projects\WeatherMapRoute\WMRApp\App.xaml
+C:\Users\Minh\Documents\TUNG\JAC\JAC Docs\12-VB.NetAndC#.Net\Projects\WeatherMapRoute\WMRApp\App.xaml
 3384554857
 
 151462897478
-76-850477383
+76264955750
 Login.xaml;MainWindow.xaml;Registration.xaml;
 
 True
 
-=======
-﻿WMRApp
-
-
-winexe
-C#
-.cs
-D:\TP\11-DotNet\WeatherMapRoute\WMRApp\obj\Debug\
-WMRApp
-none
-false
-DEBUG;TRACE
-D:\TP\11-DotNet\WeatherMapRoute\WMRApp\App.xaml
-3384554857
-
-15-753252040
-76-1803034293
-Login.xaml;MainWindow.xaml;Registration.xaml;
-
-True
-
->>>>>>> 4ecafe57ac6b51eefddb678f7fb34fc42e41535c
