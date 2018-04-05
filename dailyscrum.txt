@@ -89,8 +89,8 @@ Tung:
 2. Try to implement the route connection on map
 3. https://code.msdn.microsoft.com/windowsapps/Draw-Route-using-Bing-Maps-4a6ad1e7
 Yasser:
-1. 
-2. 
+1. Fixed Draggable pin
+2. Create database update for new pin location
 3. 
 
 
