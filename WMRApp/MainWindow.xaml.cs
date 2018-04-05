@@ -206,7 +206,7 @@ namespace WMRApp
 
         public void DraggablePinDroppedHanlder(DraggablePin pin)
         {
-            Console.WriteLine("Pin dropped");
+            //Console.WriteLine("Pin dropped");
             var pinLocation = pin.Location;
             //Update the current latitude and longitude
             lat = pinLocation.Latitude;
