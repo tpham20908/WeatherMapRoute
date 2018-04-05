@@ -14,7 +14,7 @@ namespace WMRApp.Models
         public double Lng { get; set; }
         public string Address { get; set; }
 
-        public string toString()
+        public override string ToString()
         {
             return "Lat: " + Lat + ", Lng: " + Lng + ", Address: " + Address;
         }

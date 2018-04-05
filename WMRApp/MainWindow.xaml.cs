@@ -130,9 +130,6 @@ namespace WMRApp
             // Adds the pushpin to the map.
             MyMap.Children.Add(pin);
 
-            //Gets the map that raised this event
-            Map map = (Map)sender;
-
             //Update the current latitude and longitude
             lat = pinLocation.Latitude;
             lng = pinLocation.Longitude;
