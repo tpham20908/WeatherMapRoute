@@ -34,6 +34,8 @@ namespace WMRApp
             // Fires the mouse double click
             MyMap.MouseDoubleClick +=
                 new MouseButtonEventHandler(MyMap_MouseDoubleClick);
+
+            
         }
 
         private void Window_Activated(object sender, EventArgs e)
