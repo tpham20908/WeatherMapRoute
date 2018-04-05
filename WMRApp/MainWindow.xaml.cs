@@ -26,7 +26,6 @@ namespace WMRApp
     {
         private int userId;
         private double lat, lng;
-        Microsoft.Maps.MapControl.WPF.MapTileLayer tileLayer;
 
         public MainWindow()
         {
