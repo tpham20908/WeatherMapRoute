@@ -8,8 +8,6 @@ using System.Windows.Input;
 
 namespace WMRApp.Models
 {
-
-
     public delegate void PushPinDroppedDelegate(DraggablePin pin);
 
 
@@ -80,8 +78,15 @@ namespace WMRApp.Models
                 var mouseMapPosition = e.GetPosition(map);
                 var pinLocation = map.ViewportPointToLocation(mouseMapPosition);
                 this.Location = pinLocation;
+
+
+
+
+
+
             }
         }
         #endregion
+
     }
 }
