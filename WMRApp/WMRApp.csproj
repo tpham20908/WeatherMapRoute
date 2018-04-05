@@ -74,6 +74,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\DraggablePin.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="Models\Database.cs" />
     <Compile Include="Models\RootObject.cs" />

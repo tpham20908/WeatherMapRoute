@@ -80,15 +80,8 @@ namespace WMRApp.Models
                 var mouseMapPosition = e.GetPosition(map);
                 var pinLocation = map.ViewportPointToLocation(mouseMapPosition);
                 this.Location = pinLocation;
-
-
-
-
-
-
             }
         }
         #endregion
-
     }
 }

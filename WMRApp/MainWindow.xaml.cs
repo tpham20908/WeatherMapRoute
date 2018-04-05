@@ -1,10 +1,12 @@
 ﻿using Microsoft.Maps.MapControl.WPF;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -70,9 +72,114 @@ namespace WMRApp
             lbStops.ItemsSource = Global.Db.GetAllStopsAddress(userId);
         }
 
+        public async void TraceRoot(Map map, List<Stop> stopList)
+        {
+            List<ResourceSet> resourceSet = new List<ResourceSet>();
+            Resource resource;
+            List<ItineraryItem> items = new List<ItineraryItem>();
+            List<Location> loc = new List<Location>();
+
+            for (int i = 0; i < stopList.Count - 2; i++)
+            {
+                string point1 = stopList[i].Lat + "," + stopList[i].Lng;
+                string point2 = stopList[i + 1].Lat + "," + stopList[i + 1].Lng;
+                try
+                {
+                    string reqURL = "http://dev.virtualearth.net/REST/V1/Routes?wp.0=" + point1 + "&wp.1=" + point2 + "&key=" + Global.mapKey;
+                    HttpClient client = new HttpClient();
+                    HttpResponseMessage response = await client.GetAsync(reqURL);
+                    var jsonResponse = await response.Content.ReadAsStringAsync();
+
+                    // Parsing JSON Response
+                    var rootObject = JsonConvert.DeserializeObject<RootObject>(jsonResponse);
+
+                    foreach (ResourceSet set in rootObject.resourceSets)
+                    {
+                        resourceSet.Add(set);
+
+
+                    }
+
+                    loc.Clear();
+
+                    resource = resourceSet[0].resources[0];
+
+                    items = resource.routeLegs[0].itineraryItems;
+
+                    // Colleting location points to draw route got in response. 
+
+                    foreach (ItineraryItem item in items)
+                    {
+                        loc.Add(new Location() { Latitude = item.maneuverPoint.coordinates[0], Longitude = item.maneuverPoint.coordinates[1] });
+                    }
+
+                    // Declaring Object of MapPolyline to Draw Route
+
+                    MapPolyline line = new MapPolyline();
+
+                    // Defining color to Polyline that is Red you can give any color to it. 
+                    //var converter = new System.Windows.Media.BrushConverter();
+                    //var brush = (Brush)converter.ConvertFromString("#FFFFFF90");
+                    //line.Fill = brush;
+                    line.Fill = new SolidColorBrush(Colors.Red);
+
+                    // Defining width of Polyline so it can easily be visible to naked eye. 
+
+                    line.Width = 5;
+
+                    // Giving Collection of location points to Map Polyline     
+
+                    foreach (Location l in loc)
+                    {
+                        line.Locations.Add(l);
+                    }
+
+                    // Defining Map Shape layer Object to add Polyline shape to it. 
+
+                    //MapShapeLayer shapeLayer = new MapShapeLayer();
+                    MapLayer shapeLayer = new MapLayer();
+                    // Adding line to Shape Layer 
+
+                    shapeLayer.Children.Add(line);
+
+                    // Adding Shape Layer to Map
+
+                    MyMap.Children.Add(shapeLayer);
+                    
+
+                    // Calculating Mid between both location to set center of Map
+                    int mid;
+
+                    if (loc.Count % 2 == 0)
+                    {
+                        mid = loc.Count / 2;
+                    }
+                    else
+                    {
+                        mid = (loc.Count + 1) / 2;
+                    }
+
+                    map.Center = loc[mid];
+                    map.ZoomLevel = 14;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+                finally
+                {
+                    /*
+                    drawroute.isEnabled = true;
+                    progress.Visibility = Visibility.Collapsed;
+                    */
+                }
+            }
+        }
+
         public void refreshPushpins()
         {
             List<Stop> stopList = Global.Db.GetAllCoordinates(userId);
+            TraceRoot(MyMap, stopList);
             foreach (Stop stop in stopList)
             {
                 double lat = stop.Lat;
