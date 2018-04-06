@@ -6,7 +6,7 @@
         xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
         xmlns:local="clr-namespace:WMRApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="1200" WindowStartupLocation="CenterScreen" Activated="Window_Activated" Background="#eed">
+        Title="MainWindow" Height="700" Width="1200" WindowStartupLocation="CenterScreen" Activated="Window_Activated" Background="#eed" ResizeMode="CanResize">
   <Grid Margin="5">
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="3*"/>
@@ -22,10 +22,7 @@
         <m:Map Grid.Row="0" Name="MyMap" 
                CredentialsProvider="AhOYVsCHeLfCM2LttVNiVAK6mUGtJmjRlevk_2qjuzV9J-gNrsj6z6MD5XREJN1h" 
                ZoomLevel="11" Center="45.501689,-73.567256" 
-               MouseDoubleClick="MyMap_MouseDoubleClick"
-              
-             
-               >
+               MouseDoubleClick="MyMap_MouseDoubleClick">
         </m:Map>
       </Border>
 

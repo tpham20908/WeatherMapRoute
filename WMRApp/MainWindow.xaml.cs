@@ -120,7 +120,7 @@ namespace WMRApp
                     MapPolyline line = new MapPolyline();
 
                     // Defining color to Polyline
-                    line.Stroke = new SolidColorBrush(Colors.PaleVioletRed);
+                    line.Stroke = new SolidColorBrush(Colors.DodgerBlue);
                     line.StrokeThickness = 5;
                     line.Locations = loc;
                     
@@ -157,7 +157,7 @@ namespace WMRApp
             {
                 double lat = stop.Lat;
                 double lng = stop.Lng;
-                var pin = new DraggablePin(MyMap, DraggablePinDroppedHanlder);
+                var pin = new DraggablePin(MyMap, DraggablePinDroppedHanlder, stop);
                 pin.Location = new Location(lat, lng);
                 MyMap.Children.Add(pin);
 
@@ -182,10 +182,16 @@ namespace WMRApp
         {
             //Console.WriteLine("Pin dropped");
             var pinLocation = pin.Location;
+            int currentStopId = Global.Db.SelectStopId(pin._stop.Lat, pin._stop.Lng);
+            
             //Update the current latitude and longitude
             lat = pinLocation.Latitude;
             lng = pinLocation.Longitude;
-            tbLocation.Text = Global.getAddress(lat, lng);
+            string address = Global.getAddress(lat, lng);
+            tbLocation.Text = address;
+            Global.Db.UpdateStop(currentStopId, lat, lng, address);
+            refreshPushpins();
+            refreshStops();
         }
 
         private void MyMap_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -205,7 +211,7 @@ namespace WMRApp
             Location pinLocation = MyMap.ViewportPointToLocation(mousePosition);
 
             // The pushpin to add to the map.
-            DraggablePin pin = new DraggablePin(MyMap, DraggablePinDroppedHanlder);
+            DraggablePin pin = new DraggablePin(MyMap, DraggablePinDroppedHanlder, new Stop());
             pin.Location = pinLocation;
 
             // Adds the pushpin to the map.

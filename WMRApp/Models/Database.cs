@@ -169,5 +169,36 @@ namespace WMRApp.Models
             cmd.Parameters.AddWithValue("userId", userId);
             cmd.ExecuteNonQuery();
         }
+
+        public int SelectStopId(double lat, double lng)
+        {
+            int id = 0;
+            string sql = "SELECT Id FROM Stops WHERE Lat = @Lat and Lng = @Lng";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("Lat", lat);
+            cmd.Parameters.AddWithValue("Lng", lng);
+            using (MySqlDataReader r = cmd.ExecuteReader())
+            {
+                if (r.Read())
+                {
+                    id = (int)r["Id"];
+                }
+            }
+            return id;
+        }
+
+
+        public void UpdateStop (int id, double lat, double lng, string address)
+        {
+            string sql = "UPDATE Stops SET Lat = @lat, Lng = @lng, Address = @address " +
+                "WHERE Id = @id;";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("id", id);
+            cmd.Parameters.AddWithValue("lat", lat);
+            cmd.Parameters.AddWithValue("lng", lng);
+            cmd.Parameters.AddWithValue("address", address);
+            cmd.ExecuteNonQuery();
+        }
     }
+
 }

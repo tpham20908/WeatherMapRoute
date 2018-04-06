@@ -13,15 +13,17 @@ namespace WMRApp.Models
 
     public class DraggablePin : Pushpin
     {
+        public Stop _stop;
         private Map _map;
         private bool isDragging = false;
         Location _center;
         private PushPinDroppedDelegate _pushPinDroppedDelegate;
 
-        public DraggablePin(Map map, PushPinDroppedDelegate pushPinDroppedDelegate)
+        public DraggablePin(Map map, PushPinDroppedDelegate pushPinDroppedDelegate, Stop stop)
         {
             _pushPinDroppedDelegate = pushPinDroppedDelegate;
             _map = map;
+            _stop = stop;
         }
 
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
@@ -78,12 +80,6 @@ namespace WMRApp.Models
                 var mouseMapPosition = e.GetPosition(map);
                 var pinLocation = map.ViewportPointToLocation(mouseMapPosition);
                 this.Location = pinLocation;
-
-
-
-
-
-
             }
         }
         #endregion
