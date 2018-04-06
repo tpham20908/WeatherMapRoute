@@ -72,15 +72,21 @@ namespace WMRApp
             lbStops.ItemsSource = Global.Db.GetAllStopsAddress(userId);
         }
 
-        public async void TraceRoot(Map map, List<Stop> stopList)
+        public async void TraceRoot(List<Stop> stopList)
         {
             List<ResourceSet> resourceSet = new List<ResourceSet>();
             Resource resource;
             List<ItineraryItem> items = new List<ItineraryItem>();
             List<Location> loc = new List<Location>();
 
+            if (stopList.Count < 2)
+            {
+                return;
+            }
+
             for (int i = 0; i < stopList.Count - 2; i++)
             {
+                Console.WriteLine("A stop called.");
                 string point1 = stopList[i].Lat + "," + stopList[i].Lng;
                 string point2 = stopList[i + 1].Lat + "," + stopList[i + 1].Lng;
                 try
@@ -96,8 +102,6 @@ namespace WMRApp
                     foreach (ResourceSet set in rootObject.resourceSets)
                     {
                         resourceSet.Add(set);
-
-
                     }
 
                     loc.Clear();
@@ -117,34 +121,25 @@ namespace WMRApp
 
                     MapPolyline line = new MapPolyline();
 
-                    // Defining color to Polyline that is Red you can give any color to it. 
-                    //var converter = new System.Windows.Media.BrushConverter();
-                    //var brush = (Brush)converter.ConvertFromString("#FFFFFF90");
-                    //line.Fill = brush;
-                    line.Fill = new SolidColorBrush(Colors.Red);
-
-                    // Defining width of Polyline so it can easily be visible to naked eye. 
-
+                    // Defining color to Polyline that is Red
+                    line.Stroke = new SolidColorBrush(Colors.Red);
                     line.Width = 5;
-
+                    
                     // Giving Collection of location points to Map Polyline     
-
                     foreach (Location l in loc)
                     {
                         line.Locations.Add(l);
                     }
 
                     // Defining Map Shape layer Object to add Polyline shape to it. 
-
                     //MapShapeLayer shapeLayer = new MapShapeLayer();
-                    MapLayer shapeLayer = new MapLayer();
-                    // Adding line to Shape Layer 
+                    MapLayer mapLayer = new MapLayer();
 
-                    shapeLayer.Children.Add(line);
+                    // Adding line to Shape Layer 
+                    mapLayer.Children.Add(line);
 
                     // Adding Shape Layer to Map
-
-                    MyMap.Children.Add(shapeLayer);
+                    MyMap.Children.Add(mapLayer);
                     
 
                     // Calculating Mid between both location to set center of Map
@@ -159,19 +154,11 @@ namespace WMRApp
                         mid = (loc.Count + 1) / 2;
                     }
 
-                    map.Center = loc[mid];
-                    map.ZoomLevel = 14;
+                    MyMap.Center = loc[mid];
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.ToString());
-                }
-                finally
-                {
-                    /*
-                    drawroute.isEnabled = true;
-                    progress.Visibility = Visibility.Collapsed;
-                    */
                 }
             }
         }
@@ -179,7 +166,7 @@ namespace WMRApp
         public void refreshPushpins()
         {
             List<Stop> stopList = Global.Db.GetAllCoordinates(userId);
-            TraceRoot(MyMap, stopList);
+            TraceRoot(stopList);
             foreach (Stop stop in stopList)
             {
                 double lat = stop.Lat;
