@@ -119,28 +119,14 @@ namespace WMRApp
 
                     MapPolyline line = new MapPolyline();
 
-                    // Defining color to Polyline that is Red
-                    line.Stroke = new SolidColorBrush(Colors.Azure);
+                    // Defining color to Polyline
+                    line.Stroke = new SolidColorBrush(Colors.PaleVioletRed);
                     line.StrokeThickness = 5;
                     line.Locations = loc;
-                    /*
-                    // Giving Collection of location points to Map Polyline     
-                    foreach (Location l in loc)
-                    {
-                        line.Locations.Add(l);
-                    }
                     
-                    // Defining Map Shape layer Object to add Polyline shape to it. 
-                    //MapShapeLayer shapeLayer = new MapShapeLayer();
-                    MapLayer mapLayer = new MapLayer();
-
-                    // Adding line to Shape Layer 
-                    mapLayer.Children.Add(line);
-                    */
-                    // Adding Shape Layer to Map
+                    // Adding line to Map
                     MyMap.Children.Add(line);
                     
-
                     // Calculating Mid between both location to set center of Map
                     int mid;
 
@@ -164,7 +150,8 @@ namespace WMRApp
 
         public void refreshPushpins()
         {
-            List<Stop> stopList = Global.Db.GetAllCoordinates(userId);
+            MyMap.Children.Clear();
+            List<Stop> stopList = Global.Db.GetAllStops(userId);
             TraceRoot(stopList);
             foreach (Stop stop in stopList)
             {
@@ -188,6 +175,7 @@ namespace WMRApp
         {
             Global.Db.ClearStops(userId);
             refreshStops();
+            refreshPushpins();
         }
 
         public void DraggablePinDroppedHanlder(DraggablePin pin)
@@ -246,6 +234,7 @@ namespace WMRApp
             if (!address.Equals(""))
             {
                 Global.Db.AddStop(userId, lat, lng, address);
+                refreshPushpins();
                 refreshStops();
                 tbLocation.Text = "";
             }

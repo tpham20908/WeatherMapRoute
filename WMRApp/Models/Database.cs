@@ -142,10 +142,10 @@ namespace WMRApp.Models
             return list;
         }
 
-        public List<Stop> GetAllCoordinates(int userId)
+        public List<Stop> GetAllStops(int userId)
         {
             List<Stop> list = new List<Stop>();
-            string sql = "SELECT Lat, Lng FROM Stops WHERE UserId = @userId;";
+            string sql = "SELECT Lat, Lng, Address FROM Stops WHERE UserId = @userId;";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("userId", userId);
             using (MySqlDataReader r = cmd.ExecuteReader())
@@ -154,7 +154,8 @@ namespace WMRApp.Models
                 {
                     double lat = (double)r["Lat"];
                     double lng = (double)r["Lng"];
-                    Stop stop = new Stop() { Lat = lat, Lng = lng };
+                    string address = (string)r["Address"];
+                    Stop stop = new Stop() { Lat = lat, Lng = lng, Address = address };
                     list.Add(stop);
                 }
             }
