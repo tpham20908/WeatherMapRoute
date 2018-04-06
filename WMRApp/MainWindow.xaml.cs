@@ -74,20 +74,17 @@ namespace WMRApp
 
         public async void TraceRoot(List<Stop> stopList)
         {
-            List<ResourceSet> resourceSet = new List<ResourceSet>();
-            Resource resource;
-            List<ItineraryItem> items = new List<ItineraryItem>();
-            //List<Location> loc = new List<Location>();
-            LocationCollection loc = new LocationCollection();
-
             if (stopList.Count < 2)
             {
                 return;
             }
 
-            for (int i = 0; i < stopList.Count - 2; i++)
+            for (int i = 0; i < stopList.Count - 1; i++)
             {
-                Console.WriteLine("A stop called.");
+                List<ResourceSet> resourceSet = new List<ResourceSet>();
+                Resource resource;
+                List<ItineraryItem> items = new List<ItineraryItem>();
+                LocationCollection loc = new LocationCollection();
                 string point1 = stopList[i].Lat + "," + stopList[i].Lng;
                 string point2 = stopList[i + 1].Lat + "," + stopList[i + 1].Lng;
                 try
@@ -123,7 +120,7 @@ namespace WMRApp
                     MapPolyline line = new MapPolyline();
 
                     // Defining color to Polyline that is Red
-                    line.Stroke = new SolidColorBrush(Colors.Orchid);
+                    line.Stroke = new SolidColorBrush(Colors.Azure);
                     line.StrokeThickness = 5;
                     line.Locations = loc;
                     /*
