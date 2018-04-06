@@ -77,7 +77,8 @@ namespace WMRApp
             List<ResourceSet> resourceSet = new List<ResourceSet>();
             Resource resource;
             List<ItineraryItem> items = new List<ItineraryItem>();
-            List<Location> loc = new List<Location>();
+            //List<Location> loc = new List<Location>();
+            LocationCollection loc = new LocationCollection();
 
             if (stopList.Count < 2)
             {
@@ -122,24 +123,25 @@ namespace WMRApp
                     MapPolyline line = new MapPolyline();
 
                     // Defining color to Polyline that is Red
-                    line.Stroke = new SolidColorBrush(Colors.Red);
-                    line.Width = 5;
-                    
+                    line.Stroke = new SolidColorBrush(Colors.Orchid);
+                    line.StrokeThickness = 5;
+                    line.Locations = loc;
+                    /*
                     // Giving Collection of location points to Map Polyline     
                     foreach (Location l in loc)
                     {
                         line.Locations.Add(l);
                     }
-
+                    
                     // Defining Map Shape layer Object to add Polyline shape to it. 
                     //MapShapeLayer shapeLayer = new MapShapeLayer();
                     MapLayer mapLayer = new MapLayer();
 
                     // Adding line to Shape Layer 
                     mapLayer.Children.Add(line);
-
+                    */
                     // Adding Shape Layer to Map
-                    MyMap.Children.Add(mapLayer);
+                    MyMap.Children.Add(line);
                     
 
                     // Calculating Mid between both location to set center of Map
