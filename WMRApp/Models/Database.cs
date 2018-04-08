@@ -89,6 +89,33 @@ namespace WMRApp.Models
                 return list;
         }
 
+        public List<User> GetFoundUsers(string from, string to)
+        {
+            List<User> list = new List<User>();
+            string sql = "SELECT * FROM Users " +
+                         "WHERE Id in (" +
+                            "SELECT DISTINCT s1.UserId " +
+                            "FROM Stops s1 JOIN Stops s2 ON s1.UserId=s2.UserId " +
+                            "WHERE s1.Address LIKE \"%" + from + "%\" " +
+                            "AND s2.Address LIKE \"%" + to + "%\" " +
+                            "AND s1.Id < s2.Id" +
+                         ");";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            using (MySqlDataReader r = cmd.ExecuteReader())
+            {
+                while (r.Read())
+                {
+                    int id = (int)r["Id"];
+                    string name = (string)r["Name"];
+                    string userName = (string)r["UserName"];
+                    string password = (string)r["Password"];
+                    User user = new User() { Id = id, Name = name, UserName = userName };
+                    list.Add(user);
+                }
+            }
+            return list;
+        }
+
         public void AddMessageToChats(string content)
         {
             string sql = "INSERT INTO Chats (Content) VALUES (@Content);";

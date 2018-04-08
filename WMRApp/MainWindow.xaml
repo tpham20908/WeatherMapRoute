@@ -73,47 +73,22 @@
       <Border BorderBrush="#299" BorderThickness="2" Background="#eff" Margin="0 3 0 0">
         <Grid Grid.Row="0" >
           <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="3*"/>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="10*"/>
+            <RowDefinition Height="9*"/>
           </Grid.RowDefinitions>
-          <Label Content="INDICATE YOUR ROUTE:" VerticalAlignment="Center" FontWeight="SemiBold"/>
-          <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="3">
-            <Grid>
-              <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="40"/>
-                <ColumnDefinition Width="220"/>
-              </Grid.ColumnDefinitions>
-              <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-              </Grid.RowDefinitions>
-              <Label Grid.Column="0" Grid.Row="0" Content="From:" />
-              <TextBox Grid.Column="1" Grid.Row="0" Name="tbFrom" Margin="3 0 0 0" />
-              <Label Grid.Column="1" Grid.Row="1" Content="Ex: Montreal, QC" FontSize="11" FontStyle="Italic"/>
-            </Grid>
+          <Label Content="INDICATE YOUR TRIP:" Margin="5 0" VerticalAlignment="Center" FontWeight="SemiBold"/>
+          <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" >
+            <Label Content="From:" HorizontalAlignment="Left" Width="40" Margin="5 0" />
+            <TextBox Name="tbFrom" HorizontalAlignment="Right"  Width="220" Height="26" Padding="2" />
           </StackPanel>
-          <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="3">
-            <Grid>
-              <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="40"/>
-                <ColumnDefinition Width="220"/>
-              </Grid.ColumnDefinitions>
-              <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-              </Grid.RowDefinitions>
-              <Label Grid.Column="0" Grid.Row="0" Content="To:" />
-              <TextBox Grid.Column="1" Grid.Row="0" Name="tbTo" Margin="3 0 0 0" />
-              <Label Grid.Column="1" Grid.Row="1" Content="Ex: Ottawa, ON" FontSize="11" FontStyle="Italic" />
-            </Grid>
-            
+          <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" >
+            <Label Content="To:" HorizontalAlignment="Left" Width="40" Margin="5 0" />
+            <TextBox Name="tbTo" HorizontalAlignment="Right"  Width="220" Height="26" Padding="2" />
           </StackPanel>
-          <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button Name="btnSearch" Click="btnSearch_Click" Content="Search" Width="120" Height="24" Background="#799e" Foreground="#922" FontSize="16"/>
-          </StackPanel>
+          <Button Grid.Row="3" Name="btnSearch" Click="btnSearch_Click" Content="Search" Width="120" Height="28" FontSize="16" />
           <ListView Name="lvFoundUsers" Grid.Row="4" BorderBrush="#299" BorderThickness="1" Margin="4">
             <ListView.View>
               <GridView>

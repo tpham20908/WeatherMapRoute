@@ -236,7 +236,9 @@ namespace WMRApp
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-
+            string from = tbFrom.Text;
+            string to = tbTo.Text;
+            lvFoundUsers.ItemsSource = Global.Db.GetFoundUsers(from, to);
         }
 
         private void btnAddStop_Click(object sender, RoutedEventArgs e)
