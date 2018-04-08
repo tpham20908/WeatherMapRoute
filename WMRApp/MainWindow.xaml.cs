@@ -234,6 +234,11 @@ namespace WMRApp
             tbChat.Text = "";
         }
 
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void btnAddStop_Click(object sender, RoutedEventArgs e)
         {
             string address = tbLocation.Text;
