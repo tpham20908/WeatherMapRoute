@@ -88,7 +88,7 @@
             <Label Content="To:" HorizontalAlignment="Left" Width="40" Margin="5 0" />
             <TextBox Name="tbTo" HorizontalAlignment="Right"  Width="220" Height="26" Padding="2" />
           </StackPanel>
-          <Button Grid.Row="3" Name="btnSearch" Click="btnSearch_Click" Content="Search" Width="120" Height="28" FontSize="16" />
+          <Button Grid.Row="3" Name="btnSearch" Click="btnSearch_Click" Content="Search driver(s)" Width="150" Height="28" FontSize="16" />
           <ListView Name="lvFoundUsers" Grid.Row="4" BorderBrush="#299" BorderThickness="1" Margin="4">
             <ListView.View>
               <GridView>
