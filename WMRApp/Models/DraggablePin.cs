@@ -26,6 +26,12 @@ namespace WMRApp.Models
             _stop = stop;
         }
 
+        public DraggablePin(Map map, PushPinDroppedDelegate pushPinDroppedDelegate)
+        {
+            _pushPinDroppedDelegate = pushPinDroppedDelegate;
+            _map = map;
+        }
+
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
             if (_map != null)

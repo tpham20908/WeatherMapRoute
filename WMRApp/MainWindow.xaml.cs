@@ -181,17 +181,33 @@ namespace WMRApp
         public void DraggablePinDroppedHanlder(DraggablePin pin)
         {
             //Console.WriteLine("Pin dropped");
-            var pinLocation = pin.Location;
-            int currentStopId = Global.Db.SelectStopId(pin._stop.Lat, pin._stop.Lng);
+            
+            if (pin._stop != null)
+            {
+                var pinLocation = pin.Location;
+                int currentStopId = Global.Db.SelectStopId(pin._stop.Lat, pin._stop.Lng);
+                lat = pinLocation.Latitude;
+                lng = pinLocation.Longitude;
+                string address = Global.getAddress(lat, lng);
+                tbLocation.Text = address;
+                Global.Db.UpdateStop(currentStopId, lat, lng, address);
+                refreshPushpins();
+                refreshStops();
+            }
+            else
+            {
+                var pinLocation = pin.Location;
+                lat = pinLocation.Latitude;
+                lng = pinLocation.Longitude;
+                string address = Global.getAddress(lat, lng);
+                tbLocation.Text = address;
+            }
+            
             
             //Update the current latitude and longitude
-            lat = pinLocation.Latitude;
-            lng = pinLocation.Longitude;
-            string address = Global.getAddress(lat, lng);
-            tbLocation.Text = address;
-            Global.Db.UpdateStop(currentStopId, lat, lng, address);
-            refreshPushpins();
-            refreshStops();
+            
+           
+            
         }
 
         private void MyMap_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -211,7 +227,7 @@ namespace WMRApp
             Location pinLocation = MyMap.ViewportPointToLocation(mousePosition);
 
             // The pushpin to add to the map.
-            DraggablePin pin = new DraggablePin(MyMap, DraggablePinDroppedHanlder, new Stop());
+            DraggablePin pin = new DraggablePin(MyMap, DraggablePinDroppedHanlder);
             pin.Location = pinLocation;
 
             // Adds the pushpin to the map.
