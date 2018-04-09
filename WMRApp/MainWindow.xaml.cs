@@ -202,12 +202,6 @@ namespace WMRApp
                 string address = Global.getAddress(lat, lng);
                 tbLocation.Text = address;
             }
-            
-            
-            //Update the current latitude and longitude
-            
-           
-            
         }
 
         private void MyMap_MouseDoubleClick(object sender, MouseButtonEventArgs e)
