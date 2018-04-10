@@ -189,11 +189,37 @@ namespace WMRApp.Models
             return list;
         }
 
+        public int GetStopIdSelected(int userId, string address)
+        {
+            int id = 0;
+            string sql = "SELECT Id FROM Stops WHERE UserId = @userId and Address = @address;";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("userId", userId);
+            cmd.Parameters.AddWithValue("address", address);
+            using (MySqlDataReader r = cmd.ExecuteReader())
+            {
+                if (r.Read())
+                {
+                    id = (int)r["Id"];
+                }
+            }
+            return id;
+        }
+
         public void ClearStops(int userId)
         {
             string sql = "DELETE FROM Stops WHERE UserId = @userId;";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("userId", userId);
+            cmd.ExecuteNonQuery();
+        }
+
+        public void DeleteStop(string address, int userId)
+        {
+            string sql = "DELETE FROM Stops WHERE Address = @address and UserId = @userId";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("userId", userId);
+            cmd.Parameters.AddWithValue("address", address);
             cmd.ExecuteNonQuery();
         }
 

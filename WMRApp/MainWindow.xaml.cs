@@ -28,6 +28,7 @@ namespace WMRApp
     {
         private int userId;
         public double lat, lng;
+        public string addressSelected;
 
         public MainWindow()
         {
@@ -158,6 +159,7 @@ namespace WMRApp
                 double lat = stop.Lat;
                 double lng = stop.Lng;
                 var pin = new DraggablePin(MyMap, DraggablePinDroppedHanlder, stop);
+               
                 pin.Location = new Location(lat, lng);
                 MyMap.Children.Add(pin);
 
@@ -202,12 +204,6 @@ namespace WMRApp
                 string address = Global.getAddress(lat, lng);
                 tbLocation.Text = address;
             }
-            
-            
-            //Update the current latitude and longitude
-            
-           
-            
         }
 
         private void MyMap_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -256,6 +252,32 @@ namespace WMRApp
             string to = tbTo.Text;
             lvFoundUsers.ItemsSource = Global.Db.GetFoundUsers(from, to);
         }
+
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                addressSelected = lbStops.SelectedItem.ToString();
+                MessageBoxResult result = MessageBox.Show("Would you like to delete stop point on address:\n" +
+                addressSelected +"?", "WMRApp", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                switch (result)
+                {
+                    case MessageBoxResult.Yes:
+                        Global.Db.DeleteStop(addressSelected, userId);
+                        refreshPushpins();
+                        refreshStops();
+                    break;
+                    case MessageBoxResult.No:   
+                    break; 
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Please select a stop!", "WMRApp", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }  
+        }
+
 
         private void btnAddStop_Click(object sender, RoutedEventArgs e)
         {
