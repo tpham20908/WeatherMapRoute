@@ -90,7 +90,8 @@ namespace WMRApp
                 string point2 = stopList[i + 1].Lat + "," + stopList[i + 1].Lng;
                 try
                 {
-                    string reqURL = "http://dev.virtualearth.net/REST/V1/Routes?wp.0=" + point1 + "&wp.1=" + point2 + "&key=" + Global.mapKey;
+                    string reqURL = "http://dev.virtualearth.net/REST/V1/Routes?wp.0=" + 
+                                    point1 + "&wp.1=" + point2 + "&key=" + Global.mapKey;
                     HttpClient client = new HttpClient();
                     HttpResponseMessage response = await client.GetAsync(reqURL);
                     var jsonResponse = await response.Content.ReadAsStringAsync();
@@ -102,29 +103,22 @@ namespace WMRApp
                     {
                         resourceSet.Add(set);
                     }
-
                     loc.Clear();
-
                     resource = resourceSet[0].resources[0];
-
                     items = resource.routeLegs[0].itineraryItems;
 
                     // Colleting location points to draw route got in response. 
-
                     foreach (ItineraryItem item in items)
                     {
-                        loc.Add(new Location() { Latitude = item.maneuverPoint.coordinates[0], Longitude = item.maneuverPoint.coordinates[1] });
+                        loc.Add(new Location() { Latitude = item.maneuverPoint.coordinates[0],
+                                                 Longitude = item.maneuverPoint.coordinates[1] });
                     }
-
                     // Declaring Object of MapPolyline to Draw Route
-
                     MapPolyline line = new MapPolyline();
-
                     // Defining color to Polyline
                     line.Stroke = new SolidColorBrush(Colors.DodgerBlue);
                     line.StrokeThickness = 5;
                     line.Locations = loc;
-                    
                     // Adding line to Map
                     MyMap.Children.Add(line);
                     
@@ -182,8 +176,6 @@ namespace WMRApp
 
         public void DraggablePinDroppedHanlder(DraggablePin pin)
         {
-            //Console.WriteLine("Pin dropped");
-            
             if (pin._stop != null)
             {
                 var pinLocation = pin.Location;
