@@ -92,8 +92,33 @@ Yasser:
 1. Fixed Draggable pin
 2. Create database update for new pin location
 3. 
-
-
+==== Apr 6 ====
+Tung:
+1. Create RouteObject class to map the Json object response from REST API
+2. Draw line between 2 locations on map base on RouteObject
+3. Document: https://code.msdn.microsoft.com/windowsapps/Draw-Route-using-Bing-Maps-4a6ad1e7
+Yasser:
+1.
+2.
+3.
+==== Apr 9 ====
+Tung:
+1. Connecting all locations marked by pushpins on map by drawing lines
+2. Dragging, dropping pushpins will update location in the table
+3.
+Yasser:
+1.
+2.
+3.
+==== Apr 10 ====
+Tung:
+1. 
+2. Preparing for presentation
+3.
+Yasser:
+1.
+2.
+3.
 
 
 
