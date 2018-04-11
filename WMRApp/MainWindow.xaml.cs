@@ -278,6 +278,17 @@ namespace WMRApp
             }  
         }
 
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            userId = 0;
+            refreshPushpins();
+            refreshStops();
+            lvUsers.ItemsSource = null;
+            lbChats.ItemsSource = null;
+            lblCurrentUser.Content = null;
+            Login login = new Login();
+            login.Show();
+        }
 
         private void btnAddStop_Click(object sender, RoutedEventArgs e)
         {
