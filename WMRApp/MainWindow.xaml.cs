@@ -217,7 +217,7 @@ namespace WMRApp
 
             // Determin the location to place the pushpin at on the map.
 
-            //Get the mouse click coordinates
+            //Get the mouse double click coordinates
             Point mousePosition = e.GetPosition(MyMap);
             //Convert the mouse coordinates to a locatoin on the map
             Location pinLocation = MyMap.ViewportPointToLocation(mousePosition);

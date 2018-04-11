@@ -13,8 +13,8 @@ namespace WMRApp.Models
 
         public Database()
         {
-            conn = new MySqlConnection(@"Server = den1.mysql4.gear.host;Database = jac18; Uid = jac18; Pwd = tp%ipd12");
-            //conn = new MySqlConnection(@"Server = localhost;Database = trip; Uid = root; Pwd = root");
+            //conn = new MySqlConnection(@"Server = den1.mysql4.gear.host;Database = jac18; Uid = jac18; Pwd = tp%ipd12");
+            conn = new MySqlConnection(@"Server = localhost;Database = trip; Uid = root; Pwd = root");
             conn.Open();
         }
 
