@@ -13,8 +13,8 @@ Tung:
 2. Start working on Login, Registratin windows.
 3. Ask for help from teacher if needed.
 Yasser:
-1.
-2.
+1. Create proposal and main window for our project
+2. Create map window and take screenshots for proposal and prepare proposal
 3.
 ==== March 29 ====
 Tung:
@@ -22,8 +22,8 @@ Tung:
 2. Working on login, platform windows
 3. How to get the User instance correctly from select method. Get help from teacher on rendering windows
 Yasser:
-1.
-2.
+1. Create man windows and add bing map
+2. Add pushpin on map
 3.
 ==== March 30 ====
 Tung:
@@ -32,8 +32,8 @@ Tung:
 2. List users on ListView, functioning Chat platform
 3. Get more info of mouse hovering on pushpins 
 Yasser:
-1.
-2.
+1. Add pin on the map
+2. find a method for get address of Pins on the map
 3.
 ==== March 31 ====
 Tung:
@@ -41,8 +41,8 @@ Tung:
 2. Putting an overlay of weather onto bing map.
 3. Find similar project to learn from
 Yasser:
-1.
-2.
+1. I can not a method for get address
+2. Working on get address method
 3.
 ==== Apr 1 ====
 Tung:
@@ -70,7 +70,7 @@ Tung:
    Reference: https://code.msdn.microsoft.com/windowsapps/Draw-Route-using-Bing-Maps-4a6ad1e7	
 3. Need help from teacher on drawing route lines.
 Yasser:
-1. 
+1. Get address of pin
 2. Do Drag Pushpin
 3. 
 ==== Apr 4 ====
@@ -98,8 +98,8 @@ Tung:
 2. Draw line between 2 locations on map base on RouteObject
 3. Document: https://code.msdn.microsoft.com/windowsapps/Draw-Route-using-Bing-Maps-4a6ad1e7
 Yasser:
-1.
-2.
+1. Update database for dragging pin
+2. Create button for delete a pin
 3.
 ==== Apr 9 ====
 Tung:
@@ -107,8 +107,8 @@ Tung:
 2. Dragging, dropping pushpins will update location in the table
 3.
 Yasser:
-1.
-2.
+1. create button delete
+2. Create menu for logout and login again
 3.
 ==== Apr 10 ====
 Tung:
@@ -117,7 +117,7 @@ Tung:
 3.
 Yasser:
 1.
-2.
+2. Working on Presentation
 3.
 
 
