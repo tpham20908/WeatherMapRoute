@@ -68,7 +68,8 @@ namespace WMRApp
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = false;
+            //DialogResult = false;
+            Application.Current.Shutdown();
         }
     }
 }

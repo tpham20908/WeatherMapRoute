@@ -282,6 +282,11 @@ namespace WMRApp
             login.Show();
         }
 
+        private void mi_Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
         private void btnAddStop_Click(object sender, RoutedEventArgs e)
         {
             string address = tbLocation.Text;

@@ -6,7 +6,7 @@
         xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
         xmlns:local="clr-namespace:WMRApp"
         mc:Ignorable="d"
-        Title="RouteCustom" Height="700" Width="1400" WindowStartupLocation="CenterScreen" Activated="Window_Activated" Background="#eed" ResizeMode="CanResize">
+        Title="RouteCustom" Height="710" Width="1200" WindowStartupLocation="CenterScreen" Activated="Window_Activated" Background="#eed" ResizeMode="CanResize">
 
     <Grid Margin="5,20,5,5">
         <Grid.ColumnDefinitions>
@@ -116,13 +116,14 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                <Button Grid.Row="1" Content="Clear All" HorizontalAlignment="Center" Name="btnClear" Click="btnClear_Click" Width="75" />
-                <Button Grid.Row="1" Content="Exit" HorizontalAlignment="Right" Name="btnExit" Click="btnExit_Click" Width="75" />
-                <Button Grid.Row="1" Content="Delete" Click="btnDelete_Click" HorizontalAlignment="Left" Name="btnDelete" Width="75"/>
+                <Button Grid.Row="1" Content="Clear All" HorizontalAlignment="Right" Margin="0,0,20,0" Name="btnClear" Click="btnClear_Click" Width="75" />
+                <Button Grid.Row="1" Content="Delete" Click="btnDelete_Click" HorizontalAlignment="Left" Margin="20,0,0,0" Name="btnDelete" Width="75"/>
             </Grid>
         </Grid>
         <Menu HorizontalAlignment="Left" Height="20" Margin="0,-20,0,0" VerticalAlignment="Top">
-            <MenuItem Header="File"/>
+            <MenuItem Header="File">
+                <MenuItem Name="mi_Exit" Header="Exit" Click="mi_Exit_Click"/>
+            </MenuItem>
             <MenuItem Header="Logout" Click="Logout_Click"/>
         </Menu>
     </Grid>
